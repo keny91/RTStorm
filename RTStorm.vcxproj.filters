@@ -16,9 +16,6 @@
     <Filter Include="Data">
       <UniqueIdentifier>{d858fe84-db35-44e2-b93b-f49d690e6a1c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NewFilter1">
-      <UniqueIdentifier>{af374603-7b7c-43ce-9b9c-f00bbbd771f8}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -69,6 +66,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RTStorm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Stats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Bars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Health_bar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
