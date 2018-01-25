@@ -120,4 +120,8 @@ private:
 
 	void UpdateCurrentTime();
 
+
+class Modifier{}
+class ArmorMod : Modifier{}
+class Stats : 
 };
