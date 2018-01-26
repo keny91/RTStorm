@@ -1,4 +1,4 @@
-# **RStorm**
+# **RTStorm**
 ##	**RT analysis for Heroes of the Storm**
 
 ### /*** Version 0.1 - Development build	***/
