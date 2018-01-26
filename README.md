@@ -1,6 +1,7 @@
-#	**RT ANALYSIS API FOR HEROES OF THE STORM**
+# **RStorm**
+##	**RT analysis for Heroes of the Storm**
 
-## /*** Version 0.1 - Development build	***/
+### /*** Version 0.1 - Development build	***/
 
 
 #### This Program is built by combining different projects together. Given their separate funtionalities, they are classified as:
