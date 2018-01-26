@@ -41,3 +41,14 @@ It will be interesting to include a KNN or NN to do some character/portrait reco
 
 
 ####MOAR TO COME...
+
+
+### RT Engine :		MAP
+
+![alt text](https://github.com/keny91/RTStorm/blob/master/documentation/RTEngine_Roadmap.jpg)
+
+
+
+### GAME CLASSES :		docs
+
+![alt text](https://github.com/keny91/RTStorm/blob/master/documentation/class_map.jpg)
