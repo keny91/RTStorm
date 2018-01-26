@@ -18,7 +18,7 @@
 
 
 
-/** CV Engine :		DESCRIPTION
+### CV Engine :		DESCRIPTION
 
 This program is meant to be run in the background while playing Heroes of the
 Storm (All rights reserved by Activision Blizzard and Blizzard Entertainment).
@@ -37,7 +37,7 @@ controlled heroes such as "Cho-gall" (2 playes, 1 character) or "the Lost Viking
 
 The applications -will- (BIG MIGHT) be powered by a computer vision engine based on OpenCV 3.3
 It will be interesting to include a KNN or NN to do some character/portrait recognition.
-*/
 
 
-MOAR TO COME...
+
+####MOAR TO COME...
