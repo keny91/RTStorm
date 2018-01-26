@@ -1,5 +1,5 @@
 #pragma once
-class Bars
+class Bar
 {
 private:
 	int current_value;
