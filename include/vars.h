@@ -1,0 +1,14 @@
+
+#ifndef _VARS_H_
+#define _VARS_H_
+
+
+#define RETURN_MSG_OK 1
+#define RETURN_ERROR_NULL_POINTER 2
+#define RETURN_ERROR_EMPTY_STRUCTURE 3
+#define RETURN_UNDEFINED_ERROR 4
+#define RETURN_BLABLBALA 5
+
+
+
+#endif/* _VARS_H_ */
