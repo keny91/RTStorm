@@ -33,19 +33,7 @@
     <ClInclude Include="include\Score.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Segment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Stats.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\UI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Bars.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Engine.h">
@@ -54,10 +42,16 @@
     <ClInclude Include="include\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Health_bar.h">
+    <ClInclude Include="include\Host_RT_API.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Host_RT_API.h">
+    <ClInclude Include="include\Bar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Modifier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Armor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,13 +65,13 @@
     <ClCompile Include="sources\InGame\Stats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\InGame\Bars.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\InGame\Character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\InGame\Health_bar.cpp">
+    <ClCompile Include="sources\InGame\Bar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Armor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

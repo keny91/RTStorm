@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RTStorm", "RTStorm.vcxproj", "{62966900-690A-48ED-B73A-8231A33C8742}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngine", "RTStorm.vcxproj", "{62966900-690A-48ED-B73A-8231A33C8742}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RTEngine", "RTEngine\RTEngine.vcxproj", "{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ValEngine", "ValEngine\ValEngine.vcxproj", "{41408BC9-8D75-498F-937D-5B073094121B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,22 @@ Global
 		{62966900-690A-48ED-B73A-8231A33C8742}.Release|x64.Build.0 = Release|x64
 		{62966900-690A-48ED-B73A-8231A33C8742}.Release|x86.ActiveCfg = Release|Win32
 		{62966900-690A-48ED-B73A-8231A33C8742}.Release|x86.Build.0 = Release|Win32
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Debug|x64.ActiveCfg = Debug|x64
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Debug|x64.Build.0 = Debug|x64
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Debug|x86.ActiveCfg = Debug|Win32
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Debug|x86.Build.0 = Debug|Win32
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Release|x64.ActiveCfg = Release|x64
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Release|x64.Build.0 = Release|x64
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Release|x86.ActiveCfg = Release|Win32
+		{DCFF7758-1C76-4641-99FC-B7BFCFAAB247}.Release|x86.Build.0 = Release|Win32
+		{41408BC9-8D75-498F-937D-5B073094121B}.Debug|x64.ActiveCfg = Debug|x64
+		{41408BC9-8D75-498F-937D-5B073094121B}.Debug|x64.Build.0 = Debug|x64
+		{41408BC9-8D75-498F-937D-5B073094121B}.Debug|x86.ActiveCfg = Debug|Win32
+		{41408BC9-8D75-498F-937D-5B073094121B}.Debug|x86.Build.0 = Debug|Win32
+		{41408BC9-8D75-498F-937D-5B073094121B}.Release|x64.ActiveCfg = Release|x64
+		{41408BC9-8D75-498F-937D-5B073094121B}.Release|x64.Build.0 = Release|x64
+		{41408BC9-8D75-498F-937D-5B073094121B}.Release|x86.ActiveCfg = Release|Win32
+		{41408BC9-8D75-498F-937D-5B073094121B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

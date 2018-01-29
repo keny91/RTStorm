@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Bars.h"
+#include "Bar.h"
 
-typedef Health_bar * Health;
+//typedef Health_bar * Health;
 
-class Health_bar : Bars
+class Health_bar : Bar
 {
 public:
 	Health_bar();
