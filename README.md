@@ -13,6 +13,7 @@
 | **RT Engine** | Tie all engines together, makes sure all actions and processed results are ordered. |
 | **CV Engine** | Extract visual information from the physical replay in RT. |
 | **Value Engine** | Performing the same action in different contexts might have a very different impact in the game´s result. |
+| **Log Controller** | The information gathered might be useful for further study and future adjustments. Info is also very relevant for debugging |
 
 
 
