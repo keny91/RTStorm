@@ -1,7 +1,7 @@
 
 
 /*------------------------------------------------------------------------------
- * MT_RETURN_xxx
+ * RT_RETURN_xxx
  *
  * Description:
  *  Return values for the various functions within the RT engine.
@@ -20,12 +20,24 @@
 
 typedef struct _RtStruct
 {
-    RTData   data;
-    TRConfig config;
+    RtData   data;
+    RtConfig config;
 } RTStruct; /* RT points to this. */
 
 typedef struct _RTStruct*   Rt;
 
+
+typedef struct RtData 
+{
+	int TimeStamp;
+
+} Data;
+
+
+typedef struct RtConfig
+{
+	int Settings_blablabla;
+} Config;
 
 
 // Create/destroy... Rt classes <- the idea is that there is only one... but HOST and Value have a reference to it.

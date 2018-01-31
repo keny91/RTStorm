@@ -15,7 +15,7 @@ Ex: Death, score, ...
 
 #include "du.h"
 
-
+typedef int effecttype;
 
 class Game
 {
@@ -52,6 +52,19 @@ private:
 
 protected:
 
-}
+};
 
 
+class Effect {
+public:
+	// Effect(); this is the root/parent class
+
+	effecttype type;
+	
+	int hasValidValue();
+		;
+protected:
+	;
+private:
+	;
+};
