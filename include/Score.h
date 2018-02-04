@@ -16,3 +16,43 @@ Ex: death count, objective tracking, forts, ...
 #include "du.h"
 
 
+#ifndef _SCORE_H_
+#define _SCORE_H_
+
+
+class Score {
+public:
+	Score();
+	~Score();
+protected:
+
+	virtual struct ScoreValue;  // has to be defined for each child
+	virtual int updateScore();
+	virtual int createScore();
+	Team * TeamA;
+	Team * TeamB;
+
+};
+
+class GameScore : Score
+{
+	typedef int GameType;
+public:
+	GameScore();
+	~GameScore();
+
+protected:
+	GameType type;
+	int declareWinner();
+	int scorePoint();
+	Team* TeamA;
+	Team* TeamB;
+private:
+
+};
+
+
+
+
+
+#endif // _SCORE_H_

@@ -3,8 +3,9 @@
 #ifndef _ARMOR_H_
 #define _ARMOR_H_
 
+#include "GameStructures.h"
 #include "bar.h"
-#include "Modifier.h"
+#include "Game.h"
 
 class Armor
 {

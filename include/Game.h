@@ -14,6 +14,13 @@ Ex: Death, score, ...
 -----------------------------------------------------------------------------*/
 
 #include "du.h"
+#include "Score.h"
+
+extern class Team;
+
+extern class ScoreCoreGame {};
+extern class ScorePointedGame {};
+
 
 typedef int effecttype;
 
@@ -53,6 +60,9 @@ private:
 protected:
 
 };
+
+
+
 
 
 class Effect {

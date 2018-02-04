@@ -18,6 +18,14 @@
 
 
 
+ /**	HostPassage :
+ *		Class that will store many data units that will
+ *	be part of a play (jugada).
+ *
+ */
+extern struct HostData;  // define at HostEngine.h
+extern class HostPassage;
+
 typedef struct _RtStruct
 {
     RtData   data;
@@ -40,6 +48,11 @@ typedef struct RtConfig
 } Config;
 
 
+
+
+
+
+
 // Create/destroy... Rt classes <- the idea is that there is only one... but HOST and Value have a reference to it.
 // in intradalive is a dll so everything is controlled from the other engine (creation, setCBs ,feeding data)
 // Also intradaLiveCore is also a lib. iNTRADALIVECORE also stores 
@@ -51,22 +64,22 @@ typedef struct RtConfig
  *  Signature for a callback function that can be registered with this module.
  *  The function will be called for each newly tracked passage.
  *----------------------------------------------------------------------------*/
-typedef void (*RtCCallbackFunc)(MtPassage passage, void* context);
-typedef void (*RtWillRemovePassageCallbackFunc)(MtPassage passage, void* context);
+typedef void (*RtCCallbackFunc)(RtPassage passage, void* data_unit);
+typedef void (*RtWillRemovePassageCallbackFunc)(RtPassage passage, void* data_unit);
 
-extern int MtSetNewPassageCallback(
-        Mt mt, MtNewPassageCallbackFunc callback, void* context);
+extern int RtSetNewPassageCallback(
+        Rt mt, RtNewPassageCallbackFunc callback, void* context);
 
-
-extern int MtSetWillRemovePassageCallback(
-        Mt mt, MtNewPassageCallbackFunc callback, void* context);
+// nEC
+extern int RtSetWillRemovePassageCallback(
+        Rt mt, RtNewPassageCallbackFunc callback, void* data_unit);
 
 
 // AND IN THE CODE 
- MtSetReleaseEventContextCallback(mt,MtReleaseEventContextCallback,NULL); 
-  MtSetNewPassageCallback(mt,MtNewPassageCallback,NULL);
+ RtSetReleaseEventHOSTCallback(rt,RtReleaseEventContextCallback,NULL);  // return from the Host engine
+ RtSetNewPassageCallback(rt,RtNewPassageCallback,NULL);
  //THEN... THE COMUNICATION IS STABLISHED AFTER CREATING AN MT OBJECT -> THEN WE USE External functions to communicate with it
- rc = MtAddRecognitionEvent(mt,dataToSendToMt->timestamps[0],recognition,(MtEventContext)dataToSendToMt,
+ rc = RtAddNewRegisterReadEvent(mt,dataToSendToHOST->timestamps[0],recognition,(RtData)dataToSendToHOST,
                                          &canReleaseContext);
  
 
