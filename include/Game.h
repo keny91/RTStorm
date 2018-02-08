@@ -30,6 +30,18 @@ extern void RTSetNewGameEventCB(HostData * data); //host data
 extern void RTSetErrorOnProcessRTDataCB(int error_id, string error_msg); //host data
 
 
+// depending on which map, the game will init different params on creation
+extern enum MapPool {Cursed_Hollow, Blackhearts_Bay, Garden_of_Terror,Towers_of_Doom, Sky_Temple, Volskaya_Foundry,/
+	Tomb_of_Spiderqueen, Haunted_Mines, Hanamura, Battlefield_of Eternity, Punishers, Braxis_Holdout, Warhead_Junktion};
+// each of the above should have an individual
+
+// win condition -> enemy points reach 0
+extern enum Map_Score_Based {Towers_of_Doom, Hanamura};
+// condition could still be Destroy core, but core only can TakeDamage() through objectives.
+
+
+
+// re-naming some objects to more intuitive 
 typedef int effecttype;
 
 class Game
@@ -37,6 +49,8 @@ class Game
 	
 public: 
 	Game();
+	// just an internal call to Game(), and player and map linkage.
+	static void CreateGame(Map the_Map, Team teamA, Team teamB, Game* game_empty_ptr_ref); 
 	~Game();
 
 protected:
@@ -76,8 +90,7 @@ class Effect {
 public:
 	// Effect(); this is the root/parent class
 
-	effecttype type;
-	
+	effecttype type;	
 	int hasValidValue();
 		;
 protected:
