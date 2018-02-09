@@ -73,12 +73,19 @@ protected:
 	int SetNextEventCallback(int timing, (void *) funct );  // New thread should trigger an event when the marked time comes.
 	int InitializeKeyPressCallbacks();  // predefined function that compiles a bunch of ON-KEY-PRESS callbacks.  
 	int InitHostEngine();
-	
+	int CreateTeam(Team* the_team);
+	int CreatePlayer(Player* the_player);
+	int 
+		
+	// this will act better as internal structures	
+	class Team{};
+	class Player{};
+	extern class TeamScore;
 	// Get/Set functions
 	
 	
 private:
-
+	
 
 };
 
