@@ -16,8 +16,11 @@ Ex: death count, objective tracking, forts, ...
 #include "du.h"
 
 
+
 #ifndef _SCORE_H_
 #define _SCORE_H_
+
+extern class Team;
 
 
 class Score {
@@ -26,11 +29,12 @@ public:
 	~Score();
 protected:
 
-	virtual struct ScoreValue;  // has to be defined for each child
+	virtual struct ScoreValue {};  // has to be defined for each child
 	virtual int updateScore();
 	virtual int createScore();
 	Team * TeamA;
 	Team * TeamB;
+
 
 };
 

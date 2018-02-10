@@ -15,6 +15,9 @@ Ex: Death, score, ...
 
 #include "du.h"
 #include "Score.h"
+#include <string.h>
+#include <iostream>
+using namespace std;
 
 extern class Team;
 
@@ -22,7 +25,8 @@ extern class Team;
 extern class ScoreCoreGame;
 extern class ScorePointedGame;
 extern class TeamScore;
-
+extern class Map;
+extern class RTEvent;
 
 // all these should be defined in RT.h
 extern Struct RTData;
@@ -44,7 +48,7 @@ extern enum Map_Score_Based {Towers_of_Doom, Hanamura};
 // re-naming some objects to more intuitive 
 typedef int effecttype;
 
-class Game
+typedef class Game
 {
 	
 public: 
@@ -55,15 +59,15 @@ public:
 
 protected:
 	int duration;   // In seconds / time?
-	TeamScore score_team_red;	// reference to score structure
-	TeamScore score_team_blue;
+	TeamScore* score_team_red;	// reference to score structure
+	TeamScore* score_team_blue;
 	
-	Team team_red;	// Reference to team structure
-	Team team_blue;
+	Team* team_red;	//	 to team structure
+	Team* team_blue;
 	
-	Map the_map;
+	Map* the_map;
 	
-	Event * event_list; // tribute/tower/objective spawn
+	RTEvent * event_list; // tribute/tower/objective spawn
 
 
 	// Functions
@@ -87,8 +91,7 @@ protected:
 private:
 	
 
-};
-
+} GC;
 
 
 
@@ -97,10 +100,16 @@ class Effect {
 public:
 	// Effect(); this is the root/parent class
 
+<<<<<<< Updated upstream
 	effecttype type;	
+=======
+	effecttype type;
+	//Effect();
+>>>>>>> Stashed changes
 	int hasValidValue();
 		;
 protected:
+	
 	;
 private:
 	;
