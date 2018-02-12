@@ -3,9 +3,9 @@
 #ifndef _ARMOR_H_
 #define _ARMOR_H_
 
-#include "GameStructures.h"
-#include "bar.h"
 #include "Game.h"
+#include "bar.h"
+#include "GameStructs.h"
 
 class Armor
 {
@@ -28,6 +28,6 @@ public:
 };
 
 
-class MagicArmor : modifier
+class MagicArmor : modifier {};
 
 #endif // _ARMOR_H_

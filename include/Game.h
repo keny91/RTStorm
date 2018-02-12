@@ -29,7 +29,7 @@ extern class Map;
 extern class RTEvent;
 
 // all these should be defined in RT.h
-extern Struct RTData;
+extern struct RTData;
 extern void RTSetNewGameEventCB(HostData * data); //host data 
 extern void RTSetErrorOnProcessRTDataCB(int error_id, string error_msg); //host data
 
@@ -69,6 +69,10 @@ protected:
 	
 	RTEvent * event_list; // tribute/tower/objective spawn
 
+	// this will act better as internal structures	
+	class Team {};
+	class Player {};
+	extern class TeamScore;
 
 	// Functions
 	
@@ -79,12 +83,9 @@ protected:
 	int InitHostEngine();
 	int CreateTeam(Team* the_team);
 	int CreatePlayer(Player* the_player);
-	int 
+
 		
-	// this will act better as internal structures	
-	class Team{};
-	class Player{};
-	extern class TeamScore;
+	
 	// Get/Set functions
 	
 	

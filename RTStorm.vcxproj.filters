@@ -57,7 +57,7 @@
     <ClInclude Include="sources\InGame\GameStructs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameStructures.h">
+    <ClInclude Include="include\GameMechanics\Damage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -85,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="sources\Engine\Score.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Damage.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
