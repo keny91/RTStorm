@@ -163,6 +163,7 @@
     <ClInclude Include="include\Bar.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\GameEngine.h" />
     <ClInclude Include="include\GameMechanics\Damage.h" />
     <ClInclude Include="include\Host_RT_API.h" />
     <ClInclude Include="include\Modifier.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="sources\InGame\Bar.cpp" />
     <ClCompile Include="sources\InGame\Character.cpp" />
     <ClCompile Include="sources\InGame\Damage.cpp" />
+    <ClCompile Include="sources\InGame\Game.cpp" />
     <ClCompile Include="sources\InGame\GameStructs.cpp" />
     <ClCompile Include="sources\InGame\Stats.cpp" />
     <ClCompile Include="stdafx.cpp">
