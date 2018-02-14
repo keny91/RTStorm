@@ -48,6 +48,60 @@ extern enum Map_Score_Based {Towers_of_Doom, Hanamura};
 // re-naming some objects to more intuitive 
 typedef int effecttype;
 
+
+
+/* clean this 
+
+// in shared mt.h file
+extern int MtSetNewPassageCallback(
+        Mt mt, MtNewPassageCallbackFunc callback, void* context);
+// callback function definition in mt.h
+typedef void (*MtNewPassageCallbackFunc)(MtPassage passage, void* context);
+
+
+// in definition
+MT_PUBLIC int MtSetNewPassageCallback(Mt mt, MtNewPassageCallbackFunc callback, void* context)
+{
+    if (mt == NULL) return MT_RETURN_NULL_POINTER;
+
+    mt->data->new_passage_callback_func = callback;
+    mt->data->new_passage_callback_context = context;
+
+    return MT_RETURN_OK;
+}
+
+
+// external call
+MtSetNewPassageCallback(mt,MtNewPassageCallback,NULL);
+
+// MtNewPassageCallback definition 
+// NOTE is respects the definition in mt.h
+static void MtNewPassageCallback(MtPassage passage, void* context)
+{
+  IntradaLiveDataStruct* pData;
+  IntradaLiveDataStruct* pClonedData;
+  const IntradaLiveSettingsStruct* pSettings;
+
+  CombineModData* pModData;
+  CombineModSettings* pModSettings;
+
+...
+
+
+
+
+// need a template for callback functions
+/*------------------------------------------------------------------------------
+ * MtNewPassageCallbackFunc
+ *
+ * Description:
+ *  Signature for a callback function that can be registered with this module.
+ *  The function will be called for each newly tracked passage.
+ *----------------------------------------------------------------------------*/
+typedef void (*RTContextCallbackFunc)(RTpassage passage, void* context);  // Maybe (void*) instead of RTpassage
+typedef void (*SetRTNextEventCallbackFunc)(RTpassage passage, void* context);
+
+
 typedef class Game
 {
 	
@@ -78,13 +132,14 @@ protected:
 	
 	int StartGame();
 	// next probably goes in "ENGINE"
-	int SetNextEventCallback(int timing, (void *) funct );  // New thread should trigger an event when the marked time comes.
+	int SetRTContextCallback( (void *) funct);
+	int SetRTNextEventCallback(int timing, (void *) funct );  // New thread should trigger an event when the marked time comes.
 	int InitializeKeyPressCallbacks();  // predefined function that compiles a bunch of ON-KEY-PRESS callbacks.  
 	int InitHostEngine();
 	int CreateTeam(Team* the_team);
 	int CreatePlayer(Player* the_player);
 
-		
+	
 	
 	// Get/Set functions
 	
@@ -96,7 +151,7 @@ private:
 
 
 
-
+// shoul this be here?
 class Effect {
 public:
 	// Effect(); this is the root/parent class
