@@ -26,10 +26,20 @@ NO OTHER INCLUDES.
 
 */
 
-#define 
+#define GE_RETURN_OK                  0
+#define GE_RETURN_FILE_NOT_FOUND      1
+#define GE_RETURN_INVALID_INPUT       2
+#define GE_RETURN_OUT_OF_MEMORY       3
+#define GE_RETURN_NULL_POINTER        4
+#define GE_RETURN_ILLEGAL_ENTRY       5
+#define GE_RETURN_THEAD_ERROR         6
+#define GE_RETURN_DU_ERROR            7
+#define GE_RETURN_UNKNOWN_TYPE     8
+#define GE_RETURN_INVALID_TYPE     9
+#define GE_RETURN_COULD_NOT_CONVERT     10
 
 
-typedef struct _GeStruct*            Ge;  // game instance
+typedef struct _GeStruct*            Ge;  // game instance. "_GeStruct" is declared in Game.h and defined in Game.cpp
 typedef struct _GePassageStruct*     GePassage;  // passage, englobes a series of connected events
 typedef struct _GeRecognitionStruct* GeRecognition;  /* Single event to be parsed by the engine..
                                                       this one should be called when RT creates an 
