@@ -62,7 +62,8 @@ public:
 	~Game();
 
 protected:
-	int duration;   // In seconds / time?
+	int duration;   // In ms seconds / time?
+	int game_current_time
 	TeamScore* score_team_red;	// reference to score structure
 	TeamScore* score_team_blue;
 	
