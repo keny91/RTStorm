@@ -24,6 +24,53 @@ REMEMBER, these functions are what RT and Value engines will see from GameEngine
 
 NO OTHER INCLUDES.
 
+
+IMPORTANT -> SEMAPHORES FOR READING LINES
+
+
+
+	1- read a line from file.
+	2- transform line into RTdata struct
+	3- put in the exitbuffer to GameEngine
+	(real time is less important than possible data loss)
+	(all this depends on the speed of the Reading process VS
+	the speed of the GameEngine processing)
+	4- If space in the buffer -> read and create another register.
+	5- Upon sending a RTdata we will wait for a CB from GameEngine to verify
+	that it was a valid data unit and was processed properly.
+	
+	IS IMPERATIVE THAT WE KEEP INFORMATION ORGANIZED IN TIME
+	Remember that threads will be created
+	static void* alprThreadFunc(void *threaddata)
+	{
+	...
+	QThread_Semaphore_post(pModSettings->threadStarted);
+	//then a infinite processing for
+	for ( ; ; ) 
+  		{
+		QThread_Semaphore_wait(theBuffers->processBufferSemaphore); // enabled from another thread
+									     // like when we have something new 
+									     in the buffer
+									     // Example below
+		}
+	}
+
+	// ... sample 
+	addDataToInProcessList(data,pModSettings); // function to add data to buffer
+    	QThread_Semaphore_post(pModSettings->buffer.processBufferSemaphore);
+	
+	
+	
+	This engine will have a debug log system (enable at  new debug.h)
+	#define GE_DEBUG;
+	and here as:
+	#ifdef GE_DEBUG
+		...
+	#endif
+	
+	
+	
+	
 */
 
 #define GE_RETURN_OK                  0
@@ -37,6 +84,10 @@ NO OTHER INCLUDES.
 #define GE_RETURN_UNKNOWN_TYPE     8
 #define GE_RETURN_INVALID_TYPE     9
 #define GE_RETURN_COULD_NOT_CONVERT     10
+
+
+#define RT2GAME_EXIT_BUFFER_MAX_SIZE 30
+#define NOF_READING_THREADS 4
 
 
 typedef struct _GeStruct*            Ge;  // game instance. "_GeStruct" is declared in Game.h and defined in Game.cpp
