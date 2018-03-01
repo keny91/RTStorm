@@ -165,12 +165,13 @@
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameEngine.h" />
     <ClInclude Include="include\GameMechanics\Damage.h" />
+    <ClInclude Include="include\GameStructs.h" />
     <ClInclude Include="include\Host_RT_API.h" />
+    <ClInclude Include="include\Map.h" />
     <ClInclude Include="include\Modifier.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\Score.h" />
     <ClInclude Include="include\UI.h" />
-    <ClInclude Include="sources\InGame\GameStructs.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

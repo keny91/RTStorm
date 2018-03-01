@@ -6,7 +6,7 @@
 #include "Armor.h"
 
 
-class Bar
+typedef class _BarClass
 {
 protected:
 	int current_value;
@@ -22,14 +22,15 @@ public:
 	~Bar();
 	void SetCallBack_On_Empty(void*);
 
-};
+} BarClass, * Bar;
 
 
 
-class HealthBar : Bar 
+class HealthBar : public BarClass 
 {
-private:
+protected:
 	Armor armor;
+	HealingModifier healingModifier;
 
 
 public:

@@ -15,35 +15,47 @@ Ex: Death, score, ...
 
 #include "du.h"
 #include "Score.h"
-#include <string.h>
+#include "Map.h"
+#include <string>
 #include <iostream>
 using namespace std;
 
-extern class Team;
 
 // all this is defined in score.h so it is not necessary
 extern class ScoreCoreGame;
 extern class ScorePointedGame;
-extern class TeamScore;
+
 extern class Map;
 extern class RTEvent;
 
+
+extern struct _HostDataStruct;
+typedef struct _HostDataStruct HostData;
+
+// this is not an exter ref - include the .h
+extern class _CharacterClass;
+typedef class _CharacterClass * Character;
+
+
+// this is not an exter ref - include the .h
+extern class _TeamScoreClass;
+typedef class _TeamScoreClass *TeamScore;
+
 // all these should be defined in RT.h
-extern struct RTData;
+extern struct _RTDataStruct;
+typedef struct _RTDataStruct *RTData;
+
 extern void RTSetNewGameEventCB(HostData * data); //host data 
 extern void RTSetErrorOnProcessRTDataCB(int error_id, string error_msg); //host data
 
 
-// depending on which map, the game will init different params on creation
-extern enum MapPool {Cursed_Hollow, Blackhearts_Bay, Garden_of_Terror,Towers_of_Doom, Sky_Temple, Volskaya_Foundry,/
-	Tomb_of_Spiderqueen, Haunted_Mines, Hanamura, Battlefield_of Eternity, Punishers, Braxis_Holdout, Warhead_Junktion};
-// each of the above should have an individual
-
-// win condition -> enemy points reach 0
-extern enum Map_Score_Based {Towers_of_Doom, Hanamura};
-// condition could still be Destroy core, but core only can TakeDamage() through objectives.
 
 
+
+static enum TeamColor
+{
+	blue, red
+};
 
 // re-naming some objects to more intuitive 
 typedef int effecttype;
@@ -62,6 +74,30 @@ public:
 	~Game();
 
 protected:
+
+
+
+	// Internal Classes
+	class Team 
+	{
+		bool isFullTeam;
+		int nof_players;
+		int playerSlots;
+		TeamColor teamColor;
+		TeamScore teamScore;
+		int teamId;
+	};
+
+	class Player 
+	{
+		Team * PlayersTeam;
+		int TeamId;
+		int PlayerGlobalId;
+		int CharacterId;
+		Character selectedCharacter;
+	};
+
+	static int players_in_game;   // update this value
 	int duration;   // In ms seconds / time?
 	int game_current_time
 	TeamScore* score_team_red;	// reference to score structure
@@ -71,12 +107,12 @@ protected:
 	Team* team_blue;
 	
 	Map* the_map;
-	
 	RTEvent * event_list; // tribute/tower/objective spawn
 
+	int AsignPlayersTeam(Team* the_team,  Player * the_player);
+
 	// this will act better as internal structures	
-	class Team {};
-	class Player {};
+	
 	extern class TeamScore;
 
 	// Functions

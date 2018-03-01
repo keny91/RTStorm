@@ -7,27 +7,46 @@
 #include "bar.h"
 #include "GameStructs.h"
 
-class Armor
+typedef class _ArmorClass
 {
 private:
 	int current_value;
+	MagicArmor magicArmor;
+	PhysicalArmor physicalArmor;
+
+
 	int base_value;
 	int max_value;
 	bool inmune;
-	HealthBar * health_target;
 
 
 public:
-	Armor();
-	Armor(int base_value);
-	~Armor();
+	_ArmorClass();
+	_ArmorClass(int base_value);
+	~_ArmorClass();
 	int takeDamage(int damage_per_tick, int nof_ticks);
 	int takeDamage(int damage_per_tick); // polymorphism
-	int healDamage();
+//	int healDamage();
 
-};
+} ArmorClass, *Armor;
 
 
-class MagicArmor : modifier {};
+typedef class _MagicArmorClass : modifierClass 
+{
+
+} MagicArmorClass, * MagicArmor;
+
+
+typedef class _PhysicalArmorClass : modifierClass
+{
+
+} PhysicalArmorClass, *PhysicalArmor;
+
+
+typedef class _HealingModifierClass : modifierClass
+{
+	int value;
+} 
+HealingModifierClass, * HealingModifier;
 
 #endif // _ARMOR_H_

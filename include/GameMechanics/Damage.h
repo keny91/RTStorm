@@ -3,6 +3,9 @@
 #ifndef _DAMAGE_H_
 #define _DAMAGE_H_
 
+
+#include "GameStructs.h"
+
 //typedef int damageType;
 
 enum damageType { magicDamage, physicalDamage, trueDamage};
@@ -43,5 +46,10 @@ protected:
 
 };
 
+// move this one to Damage
+class AttackModifier : protected modifierClass
+{
+
+};
 
 #endif // _DAMAGE_H_

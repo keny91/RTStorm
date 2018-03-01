@@ -54,13 +54,16 @@
     <ClInclude Include="include\Armor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sources\InGame\GameStructs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\GameMechanics\Damage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\GameEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameStructs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -89,10 +92,10 @@
     <ClCompile Include="sources\Engine\Score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\InGame\Damage.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\InGame\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Damage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

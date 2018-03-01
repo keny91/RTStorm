@@ -10,7 +10,7 @@ typedef int EffectType;
 extern struct end_effect_event;
 
 
-class Effect
+typedef class _EffectClass
 {
 public:
 	EffectType type;
@@ -21,13 +21,13 @@ public:
 
 protected:
 	void* time_event;  // time event might have multiple triggers
-	void* 
 
-};
+
+} EffectClass, *Effect;
 
 
 // abstract class; use it as the parent model for the rest
-class modifier
+typedef class _modifierClass
 {
 
 public:
@@ -46,13 +46,10 @@ protected:   // children will have these defined
 									// dpending on the child we know which is our type of parent (type of pointer returning)
 
 									//private:	// no-sense to declare any privates in the parent
+} modifierClass, * modifier;
 
-};
 
 
-class AttackModifier : protected modifier
-{
 
-}
 
-#endif // _ARMOR_H_
+#endif // _GAMESTRUCTS_H_
