@@ -1,12 +1,11 @@
 #pragma once
 #ifndef _BAR_H_
-#define _BAR_H_
-//#define 
+#define _BAR_H_ 
 
 #include "Armor.h"
 
 
-typedef class _BarClass
+typedef class BarClass
 {
 protected:
 	int current_value;
@@ -18,28 +17,33 @@ protected:
 
 
 public:
-	Bar();
-	~Bar();
+	BarClass();
+	~BarClass();
 	void SetCallBack_On_Empty(void*);
 
-} BarClass, * Bar;
+}  * Bar;
 
 
 
-class HealthBar : public BarClass 
+typedef class HealthBarClass : public BarClass 
 {
 protected:
 	Armor armor;
 	HealingModifier healingModifier;
-
+	
 
 public:
-	int takeDamage(int value);
+	// Function makes damage interact with target's Armor
+	int takeDamage(int value); 
 	int takeDamage(int value, int nof_ticks);
-	int healDamage(int value);
+	// Function makes healing interact with target's healModifier
+	int healDamage(int value); 
 	int healDamage(int value, int nof_ticks);
+	int CreateArmor(Armor* armorEmptyRef, int base_value = 0);
+	
+	HealthBarClass(int base_armor);
+	HealthBarClass();
 
-
-};
+} HealthBarClass, *HealthBar;
 
 #endif // _BAR_H_

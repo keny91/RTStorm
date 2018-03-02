@@ -73,17 +73,7 @@ IMPORTANT -> SEMAPHORES FOR READING LINES
 	
 */
 
-#define GE_RETURN_OK                  0
-#define GE_RETURN_FILE_NOT_FOUND      1
-#define GE_RETURN_INVALID_INPUT       2
-#define GE_RETURN_OUT_OF_MEMORY       3
-#define GE_RETURN_NULL_POINTER        4
-#define GE_RETURN_ILLEGAL_ENTRY       5
-#define GE_RETURN_THEAD_ERROR         6
-#define GE_RETURN_DU_ERROR            7
-#define GE_RETURN_UNKNOWN_TYPE     8
-#define GE_RETURN_INVALID_TYPE     9
-#define GE_RETURN_COULD_NOT_CONVERT     10
+
 
 
 #define RT2GAME_EXIT_BUFFER_MAX_SIZE 30

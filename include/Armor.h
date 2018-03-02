@@ -7,46 +7,98 @@
 #include "bar.h"
 #include "GameStructs.h"
 
-typedef class _ArmorClass
+
+
+// SET PARAMS
+#define MAX_ARMOR_CAP 75
+#define MIN_ARMOR_CAP -30
+#define HUNDRED_PERC_VAL 100
+
+static enum ArmorType {
+	Armor, MagicArmor, Physical
+};
+
+
+typedef class ArmorClass
 {
 private:
-	int current_value;
+	int currentArmorValue;
 	MagicArmor magicArmor;
 	PhysicalArmor physicalArmor;
+	
 
-
-	int base_value;
-	int max_value;
+	int baseArmorValue;
+	int minArmorCap, maxArmorCap;
 	bool inmune;
 
 
 public:
-	_ArmorClass();
-	_ArmorClass(int base_value);
-	~_ArmorClass();
+	//int CreateArmor(Armor* armorEmptyRef, int base_value = 0);
+	~ArmorClass();
+	ArmorClass();
+	ArmorClass(int base_value);
 	int takeDamage(int damage_per_tick, int nof_ticks);
 	int takeDamage(int damage_per_tick); // polymorphism
+	bool checkValidArmor();
 //	int healDamage();
 
-} ArmorClass, *Armor;
+} *Armor;
 
 
-typedef class _MagicArmorClass : modifierClass 
+
+typedef class  ArmorModifierClass : modifierClass 
 {
 
-} MagicArmorClass, * MagicArmor;
+protected:
+	//typedef ArmorValue modValue;
+	ArmorType armorType;
+	Armor armorParentRef;
+	bool inmune;
+	
+	int modifyValue(int amount);
+
+public:
+	int getParent(void* ref) override;
+	int setParent(void* ref) override;
+}*ArmorModifier;
 
 
-typedef class _PhysicalArmorClass : modifierClass
+
+
+typedef class MagicArmorClass :public ArmorModifierClass
+{
+	/*int applyModifier(int value);
+	int modifyValue(int amount);
+	bool reachedCap();
+	void getParent() = 0;*/
+	//void getParent();
+	public:
+	MagicArmorClass();
+	~MagicArmorClass();
+
+} * MagicArmor;
+
+
+typedef class PhysicalArmorClass : public  ArmorModifierClass
 {
 
-} PhysicalArmorClass, *PhysicalArmor;
+
+public:
+	PhysicalArmorClass();
+	~PhysicalArmorClass();
+	
+}  *PhysicalArmor;
 
 
-typedef class _HealingModifierClass : modifierClass
+typedef class HealingModifierClass : modifierClass
 {
+
 	int value;
+	HealthBar healthBarRef;
+
+public:
+	//void getParent(HealthBar* emptyRef);  // re-writting virtual
 } 
-HealingModifierClass, * HealingModifier;
+ * HealingModifier;
 
 #endif // _ARMOR_H_

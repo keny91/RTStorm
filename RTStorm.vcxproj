@@ -161,11 +161,11 @@
   <ItemGroup>
     <ClInclude Include="include\Armor.h" />
     <ClInclude Include="include\Bar.h" />
-    <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameEngine.h" />
     <ClInclude Include="include\GameMechanics\Damage.h" />
     <ClInclude Include="include\GameStructs.h" />
+    <ClInclude Include="include\GE_MSGs.h" />
     <ClInclude Include="include\Host_RT_API.h" />
     <ClInclude Include="include\Map.h" />
     <ClInclude Include="include\Modifier.h" />

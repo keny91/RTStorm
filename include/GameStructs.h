@@ -3,6 +3,8 @@
 #ifndef _GAMESTRUCTS_H_
 #define _GAMESTRUCTS_H_
 
+#include "GE_MSGs.h"
+
 
 typedef int ModifierType;
 typedef int EffectType;
@@ -10,7 +12,7 @@ typedef int EffectType;
 extern struct end_effect_event;
 
 
-typedef class _EffectClass
+typedef class EffectClass
 {
 public:
 	EffectType type;
@@ -23,30 +25,33 @@ protected:
 	void* time_event;  // time event might have multiple triggers
 
 
-} EffectClass, *Effect;
+} *Effect;
 
 
 // abstract class; use it as the parent model for the rest
-typedef class _modifierClass
+typedef class modifierClass
 {
 
 public:
 	//
-	void* reference;   // class/struct that has this mod associated
-	ModifierType type;  // 
+	//void* reference;   // class/struct that has this mod associated
+	//ModifierType type;  // 
 
 
 protected:   // children will have these defined
 
+	int maxCap, minCap;
+	int modValue;
+	bool inverseProportional;
 
-	virtual int applyModifier(int value);
+	virtual int applyModifier(int value, int *resulting_value);
 	virtual int modifyValue(int amount);
 	virtual bool reachedCap();
-	virtual void *getParent() = 0;  // pure virtual -> must be redifined 
-									// dpending on the child we know which is our type of parent (type of pointer returning)
-
+	virtual int getParent(void* ref) = 0;  // pure virtual -> must be redifined 
+									// depending on the child we know which is our type of parent (type of pointer returning)
+	virtual int setParent(void* ref) = 0;
 									//private:	// no-sense to declare any privates in the parent
-} modifierClass, * modifier;
+}  * modifier;
 
 
 
