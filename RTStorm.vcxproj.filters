@@ -16,6 +16,12 @@
     <Filter Include="Data">
       <UniqueIdentifier>{d858fe84-db35-44e2-b93b-f49d690e6a1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\InGame">
+      <UniqueIdentifier>{7e4df9a3-0f86-4d70-bc69-8d6e47f6afb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\InGame">
+      <UniqueIdentifier>{11cf422b-e6f5-4c29-8fc3-3f490a6dce9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -27,44 +33,47 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Score.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\UI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Host_RT_API.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Bar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Modifier.h">
+    <ClInclude Include="include\GE_MSGs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Armor.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bar.h">
+      <Filter>Header Files\InGame</Filter>
     </ClInclude>
     <ClInclude Include="include\GameMechanics\Damage.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game.h">
+      <Filter>Header Files\InGame</Filter>
     </ClInclude>
     <ClInclude Include="include\GameEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Map.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InGame</Filter>
     </ClInclude>
     <ClInclude Include="include\GameStructs.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InGame</Filter>
     </ClInclude>
-    <ClInclude Include="include\GE_MSGs.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Map.h">
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Modifier.h">
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Player.h">
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Score.h">
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>Header Files\InGame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,26 +86,23 @@
     <ClCompile Include="sources\InGame\Stats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\InGame\Character.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="sources\InGame\Armor.cpp">
+      <Filter>Source Files\InGame</Filter>
     </ClCompile>
     <ClCompile Include="sources\InGame\Bar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\InGame\Armor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\InGame\GameStructs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\Engine\Score.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\InGame\Game.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\InGame</Filter>
     </ClCompile>
     <ClCompile Include="sources\InGame\Damage.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\InGame</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Game.cpp">
+      <Filter>Source Files\InGame</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\GameStructs.cpp">
+      <Filter>Source Files\InGame</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\Score.cpp">
+      <Filter>Source Files\InGame</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

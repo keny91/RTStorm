@@ -20,6 +20,7 @@ Ex: Death, score, ...
 #include <iostream>
 using namespace std;
 
+extern enum heroName;
 
 // all this is defined in score.h so it is not necessary
 extern class ScoreCoreGame;
@@ -50,7 +51,7 @@ extern void RTSetErrorOnProcessRTDataCB(int error_id, string error_msg); //host 
 
 
 
-
+enum GameType { QM, UR, HL, TL, BR };
 
 static enum TeamColor
 {
@@ -88,14 +89,7 @@ protected:
 		int teamId;
 	};
 
-	class Player 
-	{
-		Team * PlayersTeam;
-		int TeamId;
-		int PlayerGlobalId;
-		int CharacterId;
-		Character selectedCharacter;
-	};
+	
 
 	static int players_in_game;   // update this value
 	int duration;   // In ms seconds / time?

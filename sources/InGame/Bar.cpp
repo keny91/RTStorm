@@ -1,15 +1,15 @@
-//#include "stdafx.h"
+
 #include "Bar.h"
 
 
 
 // this should be declared in whatever is going to contain the healthbar
-HealthBarClass::HealthBarClass(int base_armor)
+HealthBarClass::HealthBarClass(int base_armor, hero hero_reference)
 {
 	CreateArmor(&armor, base_armor);
 	CreateHealingMod(&healingModifier, base_healing);
 
-	setParent();  // link with character
+	setParent(hero_reference);  // link with character
 }
 
 //int HealthBarClass::CreateHealthBar()

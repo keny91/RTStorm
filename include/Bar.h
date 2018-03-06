@@ -41,9 +41,9 @@ public:
 	int healDamage(int value, int nof_ticks);
 	int CreateArmor(Armor* armorEmptyRef, int base_value = 0);
 	
-	HealthBarClass(int base_armor);
+	HealthBarClass(int base_armor, hero hero_reference);
 	HealthBarClass();
 
-} HealthBarClass, *HealthBar;
+}  *HealthBar;
 
 #endif // _BAR_H_

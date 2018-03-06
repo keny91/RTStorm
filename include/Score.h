@@ -13,20 +13,19 @@ Ex: death count, objective tracking, forts, ...
 
 -----------------------------------------------------------------------------*/
 
-#include "du.h"
-
-
 
 #ifndef _SCORE_H_
 #define _SCORE_H_
 
-extern class Team;
 
+#include "du.h"
 
-class Score {
+extern enum GameType; // defined in Game.h
+
+typedef class ScoreClass {
 public:
-	Score();
-	~Score();
+	ScoreClass();
+	~ScoreClass();
 protected:
 
 	virtual struct ScoreValue {};  // has to be defined for each child
@@ -36,14 +35,14 @@ protected:
 	Team * TeamB;
 
 
-};
+}*Score;
 
-class GameScore : Score
+typedef class GameScoreClass : ScoreClass
 {
-	typedef int GameType;
+
 public:
-	GameScore();
-	~GameScore();
+	GameScoreClass();
+	~GameScoreClass();
 
 protected:
 	GameType type;
@@ -53,7 +52,7 @@ protected:
 	Team* TeamB;
 private:
 
-};
+}*GameScore;
 
 
 

@@ -12,13 +12,11 @@ This file is dedicated to .
 
 -----------------------------------------------------------------------------*/
 
+
+using namespace std;
 #include "du.h"
-
-// maybe use other classes as "external" resources, but define them here as a class 
-// ANSWER: NO!, extern only is used for communication between engines.
-
-// extern class Character;  // <- good when we just want to set callback with this classes/structs
-#include "Character.h"
+#include "Hero.h"
+#include <string>
 
 /*  these structs are type-defined in their respective class declaration docs
 typedef _PlayerStadisticsClass * PlayerStadistics;
@@ -28,11 +26,11 @@ typedef _CharacterClass * Character;
 */
 
 
+// maybe we need a better system than an enum
+enum PlayerAtribute{Silenced, Player_Score, AI_Controlled, ... } ;
 
-enum PlayerAtribute{Silenced, Player_Score, AI_Controlled,  } ;
 
-
-typedef class _PlayerClass
+typedef class PlayerClass
 {
 private:
 	//
@@ -42,14 +40,16 @@ private:
 
 protected:	
 	string player_name;
+	int PlayerGlobalId;
+	Team playerTeam;  // reference to the team the player belongs to
+	PlayerScore player_score;	// reference to score
+	PlayerStadistics player_stadistics;  // ...
+	Rank playerLeague; 
+	Hero selectedHero;   // stat info, char reference, talentable
+	DuList charactersInGame;   // characters might change, or be multiple
 	
-	Team * player_team;  // reference to the team the player belongs to
-	PlayerScore player_score;	
-	PlayerStadistics player_stadistics;  // 
-	League playerLeague; 
-	
-	//int nof_characters;
-	DuArray characters_ingame; // also contains nof_characters
+	//int nof_characters;  // contained in dulist
+
 	
 	bool silenced;
 	bool AI_controlled;
@@ -61,12 +61,11 @@ protected:
 	
 	int SetPlayerAttribute(PlayerAtribute theAttribute, void* value);  // way to call private functions after validating the value
 			          					   // casting void* to the approviate reference value
-	
 public:
 
 	// protected?
-	Player();
-	~Player();
+	PlayerClass();
+	~PlayerClass();
 
 
 private:
@@ -76,32 +75,31 @@ private:
 
 
 
-} PlayerClass, * Player;
+} * Player;
 
 
 
 // NOTE-> CREATE A SIMILAR DOCUMENT FOR THE LEAGUE CLASS  --  league.h
 // should these be static?/ non-visible outside this class?
 typedef enum Leagues{bronze,silver,golg,platinum,diamond,master,grandmaster} PlayerLeague;
-typedef enum LeagueDivision{I,II,III,IV,V} PlayerDivision;
-typedef enum LeagueDivision{I,II,III,IV,V} PlayerDivision;
+typedef enum Divisions{I,II,III,IV,V} PlayerDivision;
 
-typedef class _LeagueClass
+typedef class RankClass
 {
 	
 	protected:
 		int GetNumericRank();
 		int CreateLeague(League emptyLeagueReference);
 	private:
-		playerleague league;
+		PlayerLeague league;
 		PlayerDivision division;
 		int MMR;  // should all mmrs be displayed?
 		int NumericRank;
 	
 	
-		_LeagueClass();
-		~_LeagueClass();
+		LeagueClass();
+		~LeagueClass();
 		int DetermineInternalNumericRank();
 	
 		
-} LeagueClass, *League;
+} *Rank;

@@ -159,6 +159,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hero.h" />
     <ClInclude Include="include\Armor.h" />
     <ClInclude Include="include\Bar.h" />
     <ClInclude Include="include\Game.h" />
@@ -180,7 +181,6 @@
     <ClCompile Include="sources\Engine\Score.cpp" />
     <ClCompile Include="sources\InGame\Armor.cpp" />
     <ClCompile Include="sources\InGame\Bar.cpp" />
-    <ClCompile Include="sources\InGame\Character.cpp" />
     <ClCompile Include="sources\InGame\Damage.cpp" />
     <ClCompile Include="sources\InGame\Game.cpp" />
     <ClCompile Include="sources\InGame\GameStructs.cpp" />
