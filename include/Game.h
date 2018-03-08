@@ -16,6 +16,7 @@ Ex: Death, score, ...
 #include "du.h"
 #include "Score.h"
 #include "Map.h"
+#include "Player.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -65,13 +66,13 @@ typedef int effecttype;
 
 
 
-typedef class Game
+typedef class GameClass
 {
 	
 public: 
 	Game();
 	// just an internal call to Game(), and player and map linkage.
-	static void CreateGame(Map the_Map, Team teamA, Team teamB, Game* game_empty_ptr_ref); 
+	static void CreateGame(); 
 	~Game();
 
 protected:
@@ -94,8 +95,8 @@ protected:
 	static int players_in_game;   // update this value
 	int duration;   // In ms seconds / time?
 	int game_current_time
-	TeamScore* score_team_red;	// reference to score structure
-	TeamScore* score_team_blue;
+	//TeamScore* score_team_red;	// reference to score structure
+	//TeamScore* score_team_blue;
 	
 	Team* team_red;	//	 to team structure
 	Team* team_blue;
@@ -103,11 +104,23 @@ protected:
 	Map* the_map;
 	RTEvent * event_list; // tribute/tower/objective spawn
 
-	int AsignPlayersTeam(Team* the_team,  Player * the_player);
+	// Internal management of team
+	int CreateTeam(Team team_empty_ref);
+	int CloseTeam();
+	
 
+	
+
+	// Internal management of player class
+	int CreatePlayer(Player player_empty_ref);
+	int InitPLayer(string player_name, Hero picked_hero);
+	int AsignPlayerTeam(Team the_team, Player the_player);
+
+	
+	
 	// this will act better as internal structures	
 	
-	extern class TeamScore;
+	//extern class TeamScore;
 
 	// Functions
 	

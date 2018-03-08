@@ -16,4 +16,8 @@
 #define GE_RETURN_NON_EMPTY_REF 11
 
 
+#define GE_RETURN_TEAM_FULL 12
+#define GE_RETURN_PLAYER_REJECT 13
+
+
 #endif // _GE_MSG_H_

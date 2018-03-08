@@ -10,3 +10,4 @@ int modifierClass::applyModifier(int value, int *resulting_value)
 		*resulting_value = value + value * modValue;
 	return GE_RETURN_OK;
 }
+
