@@ -75,6 +75,9 @@
     <ClInclude Include="Hero.h">
       <Filter>Header Files\InGame</Filter>
     </ClInclude>
+    <ClInclude Include="include\Team.h">
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

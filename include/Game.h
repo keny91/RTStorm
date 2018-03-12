@@ -18,6 +18,7 @@ Ex: Death, score, ...
 #include "Map.h"
 #include <string>
 #include <iostream>
+#include "Player.h"
 using namespace std;
 
 extern enum heroName;
@@ -53,7 +54,7 @@ extern void RTSetErrorOnProcessRTDataCB(int error_id, string error_msg); //host 
 
 enum GameType { QM, UR, HL, TL, BR };
 
-static enum TeamColor
+enum TeamColor
 {
 	blue, red
 };
@@ -65,37 +66,40 @@ typedef int effecttype;
 
 
 
-typedef class Game
+typedef class ClassGame
 {
 	
 public: 
-	Game();
+	GameClass();
 	// just an internal call to Game(), and player and map linkage.
-	static void CreateGame(Map the_Map, Team teamA, Team teamB, Game* game_empty_ptr_ref); 
-	~Game();
+	void CreateStandardGame(Map the_Map, Game* game_empty_ptr_ref);
+	void CreateGame()
+	~GameClass(Game* game_empty_ptr_ref);
 
 protected:
 
 
 
 	// Internal Classes
-	class Team 
-	{
-		bool isFullTeam;
-		int nof_players;
-		int playerSlots;
-		TeamColor teamColor;
-		TeamScore teamScore;
-		int teamId;
-	};
+	//class Team 
+	//{
+	//	bool isFullTeam;
+	//	int nof_players;
+	//	int playerSlots;
+	//	TeamColor teamColor;
+	//	TeamScore teamScore;
+	//	int teamId;
+	//};
 
 	
 
 	static int players_in_game;   // update this value
 	int duration;   // In ms seconds / time?
 	int game_current_time
-	TeamScore* score_team_red;	// reference to score structure
-	TeamScore* score_team_blue;
+
+
+	TeamScore score_team_red;	// reference to score structure
+	TeamScore score_team_blue;
 	
 	Team* team_red;	//	 to team structure
 	Team* team_blue;
@@ -106,8 +110,6 @@ protected:
 	int AsignPlayersTeam(Team* the_team,  Player * the_player);
 
 	// this will act better as internal structures	
-	
-	extern class TeamScore;
 
 	// Functions
 	
@@ -128,7 +130,7 @@ protected:
 private:
 	
 
-} GC;
+} Game;
 
 
 
