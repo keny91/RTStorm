@@ -16,6 +16,7 @@ Ex: Death, score, ...
 #include "du.h"
 #include "Score.h"
 #include "Map.h"
+#include "Player.h"
 #include <string>
 #include <iostream>
 #include "Player.h"

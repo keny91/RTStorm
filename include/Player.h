@@ -72,7 +72,9 @@ private:
 	int AddCharacter(Character theCharacter); // can be done multiple times, this will add a character 
 	int AddPlayerScore(PlayerScore thePlayerScore);
 	int AddLeague(PlayerScore thePlayerScore);
-
+	int SetName(string Name);
+	int SetHero(Hero picked_hero); // set hero and initialize characters
+	int AddPlayerStadistics(PlayerStadistics Stadistics)
 
 
 } * Player;
