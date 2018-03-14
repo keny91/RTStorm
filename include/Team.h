@@ -17,6 +17,8 @@ public:
 	bool isFullTeam;
 	TeamClass();
 	~TeamClass();
+	Game parentGame;
+
 
 private:
 

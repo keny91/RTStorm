@@ -124,3 +124,5 @@ int ArmorModifierClass::modifyValue(int amount)
  {
 
  }
+
+
