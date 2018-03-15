@@ -14,13 +14,14 @@
 typedef class BarClass
 {
 protected:
-	int current_value;
-	int max_value;
+	int currentBarValue;
+	int maxBarValue;
 	bool inmune;
 	bool checkEmpty();
 	int modifyValue(int value);
-	int checkModification();
-	int getPercentageFilled(double * perc_val_ref);
+	int modifyValue(int value, int *excess);
+	/*int checkModification(int value);*/
+	int getPercentageFilled(int * perc_val_ref);
 	bool isAboveTH(int perc_th);
 	bool isBelowTH(int perc_th);
 	virtual int setParent() = 0;  // must be implemented for child classes

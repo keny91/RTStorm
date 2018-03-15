@@ -2,7 +2,100 @@
 #include "Bar.h"
 
 
-BarClass::
+
+/*****	Start of BarClass Definition	*****/
+
+
+bool BarClass::checkEmpty() 
+{
+	if (currentBarValue <= 0)
+		return true;
+	else
+		false;
+}
+
+
+/**		Function:	modifyValue(int value)
+	Adds the value to the
+*/
+int BarClass::modifyValue(int value)
+{
+	int calculatedValue;
+
+	calculatedValue = currentBarValue + value;
+
+	if (calculatedValue <= 0) 
+	{
+		currentBarValue = 0;
+		return BAR_REACHED_EMPTY;
+	}
+	else if (calculatedValue >= maxBarValue)
+	{
+		currentBarValue = maxBarValue;
+		return BAR_REACHED_MAX;
+	}
+	else
+		currentBarValue = calculatedValue;
+
+	return BAR_ALL_GOOD;
+}
+
+
+int BarClass::modifyValue(int value, int * excess)
+{
+	int calculatedValue;
+	*excess = 0;
+
+	calculatedValue = currentBarValue + value;
+
+	if (calculatedValue <= 0)
+	{
+		*excess = calculatedValue;
+		currentBarValue = 0;
+		return BAR_REACHED_EMPTY;
+	}
+	else if (calculatedValue >= maxBarValue)
+	{
+		*excess = calculatedValue;
+		currentBarValue = maxBarValue;
+		return BAR_REACHED_MAX;
+	}
+	else
+		currentBarValue = calculatedValue;
+
+	return BAR_ALL_GOOD;
+}
+
+
+int BarClass::getPercentageFilled(int * perc_val_ref) 
+{
+	*perc_val_ref = int(currentBarValue * 100 / maxBarValue);
+	return GE_RETURN_OK;
+}
+
+bool BarClass::isAboveTH(int perc_th)
+{
+	int percent_value;
+	getPercentageFilled(&percent_value);
+	if (percent_value > perc_th)
+		return true;
+	else
+		return false;
+}
+
+bool BarClass::isBelowTH(int perc_th)
+{
+	int percent_value;
+	getPercentageFilled(&percent_value);
+	if (percent_value < perc_th)
+		return true;
+	else
+		return false;
+}
+
+/*****	Start of BarClass Definition	*****/
+
+/*****	Start of HealthBarClass Definition	*****/
 
 // this should be declared in whatever is going to contain the healthbar
 HealthBarClass::HealthBarClass(int base_armor, Character character_reference)
