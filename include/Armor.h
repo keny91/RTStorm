@@ -14,10 +14,13 @@
 #define MIN_ARMOR_CAP -30
 #define HUNDRED_PERC_VAL 100
 
-static enum ArmorType {
+enum ArmorType {
 	Armor, MagicArmor, Physical
 };
 
+
+// Move to damage?
+extern enum DamageType;
 
 typedef class ArmorClass
 {
@@ -38,7 +41,7 @@ public:
 	ArmorClass();
 	ArmorClass(int base_value);
 	int takeDamage(int damage_per_tick, int nof_ticks);
-	int takeDamage(int damage_per_tick); // polymorphism
+	int takeDamage(int damage, DamageType dmg_type); // polymorphism
 	bool checkValidArmor();
 //	int healDamage();
 

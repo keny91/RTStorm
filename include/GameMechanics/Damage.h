@@ -8,7 +8,9 @@
 
 //typedef int damageType;
 
-enum damageType { magicDamage, physicalDamage, trueDamage};
+enum DamageType {
+	TrueDamage, PhysicalDamage, MagicDamage, PercentDamege
+};
 // condition could still be Destroy core, but core only can TakeDamage() through objectives.
 
 enum AttackType { areaDamage, singleTarget, skillshot, nova, autoAttack, };

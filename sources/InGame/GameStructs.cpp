@@ -11,3 +11,5 @@ int modifierClass::applyModifier(int value, int *resulting_value)
 	return GE_RETURN_OK;
 }
 
+
+

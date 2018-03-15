@@ -45,8 +45,8 @@ protected:
 
 public:
 	// Function makes damage interact with target's Armor
-	int takeDamage(int value); 
-	int takeDamage(int value, int nof_ticks);
+	int takeDamage(int value, DamageType dmg_type);
+	int takeDamage(int value, DamageType dmg_type ,int nof_ticks);
 	// Function makes healing interact with target's healModifier
 	int healDamage(int value); 
 	int healDamage(int value, int nof_ticks);

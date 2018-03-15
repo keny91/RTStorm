@@ -93,7 +93,7 @@ bool BarClass::isBelowTH(int perc_th)
 		return false;
 }
 
-/*****	Start of BarClass Definition	*****/
+/*****	End of BarClass Definition	*****/
 
 /*****	Start of HealthBarClass Definition	*****/
 
@@ -116,6 +116,20 @@ HealthBarClass::~HealthBarClass()
 	delete(healingModifier);
 }
 
+
+int HealthBarClass::takeDamage(int value, DamageType dmg_type)
+{
+	int rc;
+	int dmg_value;
+
+	dmg_value = armor->takeDamage(value, dmg_type);
+	rc = modifyValue(value);
+
+	return rc;
+}
+
+
+/*****	End of HealthBarClass Definition	*****/
 
 int ManaBarClass::modifyMana(int value) 
 {
