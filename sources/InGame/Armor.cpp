@@ -2,8 +2,9 @@
 #include "Armor.h"
 
 
-/*** ARMOR******/
 
+
+/*****	Start of ArmorClass Definition	*****/
 
 ArmorClass::ArmorClass()
 {
@@ -59,9 +60,11 @@ ArmorClass::~ArmorClass()
 {
 }
 
+/*****	End of ArmorClass Definition	*****/
 
 
-/*** ARMOR_MODIFIER******/
+/*****	Start of ArmorModifierClass Definition	*****/
+
 
 int ArmorModifierClass::getParent(void* ref)
 {
@@ -110,6 +113,11 @@ int ArmorModifierClass::modifyValue(int amount)
 	return modValue;
 }
 
+/*****	End of ArmorModifierClass Definition	*****/
+
+/*****	Start of PhysicalArmorClass Definition	*****/
+
+
 
 /*** PHYSICAL_ARMOR******/
  PhysicalArmorClass::PhysicalArmorClass()
@@ -126,3 +134,4 @@ int ArmorModifierClass::modifyValue(int amount)
  }
 
 
+ /*****	End of ArmorModifierClass Definition	*****/

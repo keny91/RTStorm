@@ -33,6 +33,7 @@ private:
 	int baseArmorValue;
 	int minArmorCap, maxArmorCap;
 	bool inmune;
+	int addPermanentArmor(ArmorType type, int value);
 
 
 public:
@@ -42,6 +43,8 @@ public:
 	ArmorClass(int base_value);
 	int takeDamage(int damage_per_tick, int nof_ticks);
 	int takeDamage(int damage, DamageType dmg_type); // polymorphism
+	
+	int modifyArmor(ArmorType type, int value);
 	bool checkValidArmor();
 //	int healDamage();
 
