@@ -100,9 +100,11 @@ bool BarClass::isBelowTH(int perc_th)
 // this should be declared in whatever is going to contain the healthbar
 HealthBarClass::HealthBarClass(int base_armor, Character character_reference)
 {
-	armor = new ArmorClass(base_armor);
-	//CreateArmor(&armor, base_armor);
+	armor = new ArmorClass(base_armor);  // create
+	armor->setHealthBarRef((void*)this);  // link to parent
+
 	healingModifier = new HealingModifierClass(); // similar to armor
+	healingModifier->setHealthBarRef((void*)this);	// link
 
 	setParent(character_reference);  // link with character
 }

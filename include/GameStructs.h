@@ -44,8 +44,8 @@ protected:   // children will have these defined
 	int modValue;
 	bool inverseProportional;
 
-	virtual int applyModifier(int value, int *resulting_value);
-	virtual int modifyValue(int amount);
+	int applyModifier(int value);
+	int modifyValue(int amount);
 	virtual bool reachedCap();
 	virtual int getParent(void* ref) = 0;  // pure virtual -> must be redifined 
 									// depending on the child we know which is our type of parent (type of pointer returning)

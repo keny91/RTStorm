@@ -52,7 +52,18 @@ bool ArmorClass::checkValidArmor()
 }
 
 
+int ArmorClass::getHealthBarRef(void * health_Ref)
+{
+	health_Ref = (void*)parentHealthRef;
+	return GE_RETURN_OK;
+}
 
+
+int ArmorClass::setHealthBarRef(void * health_Ref)
+{
+	parentHealthRef = (HealthBar)health_Ref;
+	return GE_RETURN_OK;
+}
 
 
 
@@ -113,25 +124,52 @@ int ArmorModifierClass::modifyValue(int amount)
 	return modValue;
 }
 
+
+
+
+int ArmorModifierClass::takeDamage(int damage) 
+{
+	int resultingDamage;
+	//Armor parentRef;
+	//getParent((void*)parentRef);  // get
+	//parentRef = (Armor)parentRef; // cast
+	resultingDamage = applyModifier(damage);
+
+	return resultingDamage;
+}
+
+
+int ArmorModifierClass::getParent(void* ArmorRef)
+{	
+	ArmorRef = (void*)armorParentRef;
+	return GE_RETURN_OK;
+}
+
+int ArmorModifierClass::setParent(void* ref)
+{
+	armorParentRef = (Armor)ref;
+	return GE_RETURN_OK;
+}
+
 /*****	End of ArmorModifierClass Definition	*****/
 
+
+
+
+
 /*****	Start of PhysicalArmorClass Definition	*****/
-
-
-
-/*** PHYSICAL_ARMOR******/
  PhysicalArmorClass::PhysicalArmorClass()
 {
 
 }
 
+ /*****	End of PhysicalArmorClass Definition	*****/
 
-
- /*** MAGIC_ARMOR******/
+ /*****	Start of MagicArmorClass Definition	*****/
  MagicArmorClass::MagicArmorClass()
  {
 
  }
 
 
- /*****	End of ArmorModifierClass Definition	*****/
+ /*****	End of MagicArmorClass Definition	*****/

@@ -50,7 +50,6 @@ public:
 	// Function makes healing interact with target's healModifier
 	int healDamage(int value); 
 	int healDamage(int value, int nof_ticks);
-	int CreateArmor(Armor* armorEmptyRef, int base_value = 0);
 	
 	HealthBarClass(int base_armor, Character char_reference);
 	HealthBarClass();

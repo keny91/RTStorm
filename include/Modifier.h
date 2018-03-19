@@ -20,7 +20,7 @@ public:
 	Modifier();
 	~Modifier();
 	int applyModifier(int value);
-	int applyModifier(int value, int nof_ticks);
+	
 
 };
 

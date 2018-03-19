@@ -28,7 +28,7 @@ private:
 	int currentArmorValue;
 	MagicArmor magicArmor;
 	PhysicalArmor physicalArmor;
-	
+	HealthBar parentHealthRef;
 
 	int baseArmorValue;
 	int minArmorCap, maxArmorCap;
@@ -43,7 +43,8 @@ public:
 	ArmorClass(int base_value);
 	int takeDamage(int damage_per_tick, int nof_ticks);
 	int takeDamage(int damage, DamageType dmg_type); // polymorphism
-	
+	int getHealthBarRef(void * ref);
+	int setHealthBarRef(void * ref);
 	int modifyArmor(ArmorType type, int value);
 	bool checkValidArmor();
 //	int healDamage();
@@ -59,8 +60,12 @@ protected:
 	//typedef ArmorValue modValue;
 	ArmorType armorType;
 	Armor armorParentRef;
+	//HealthBar healthParentRef;
 	bool inmune;
-	
+
+	/* Take damage -> create a ref to health*/
+	int takeDamage(int damage_per_tick, int nof_ticks, DamageType dmg_type);
+	int takeDamage(int damage); // polymorphism
 	int modifyValue(int amount);
 
 public:
