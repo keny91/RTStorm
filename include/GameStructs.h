@@ -42,6 +42,7 @@ protected:   // children will have these defined
 
 	int maxCap, minCap;
 	int modValue;
+	int baseValue;
 	bool inverseProportional;
 
 	int applyModifier(int value);

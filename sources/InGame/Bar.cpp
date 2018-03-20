@@ -104,7 +104,7 @@ HealthBarClass::HealthBarClass(int base_armor, Character character_reference)
 	armor->setHealthBarRef((void*)this);  // link to parent
 
 	healingModifier = new HealingModifierClass(); // similar to armor
-	healingModifier->setHealthBarRef((void*)this);	// link
+	healingModifier->setParent((void*)this);	// link
 
 	setParent(character_reference);  // link with character
 }

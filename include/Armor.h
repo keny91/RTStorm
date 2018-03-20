@@ -15,7 +15,7 @@
 #define HUNDRED_PERC_VAL 100
 
 enum ArmorType {
-	Armor, MagicArmor, Physical
+	FullArmor, Magical, Physical
 };
 
 
@@ -34,6 +34,7 @@ private:
 	int minArmorCap, maxArmorCap;
 	bool inmune;
 	int addPermanentArmor(ArmorType type, int value);
+	int baseValue;
 
 
 public:
@@ -63,9 +64,15 @@ protected:
 	//HealthBar healthParentRef;
 	bool inmune;
 
+	// redefined for future childs
+	int modValue;
+	int maxCap;
+	int minCap;
+	bool inverseProportional;
+
 	/* Take damage -> create a ref to health*/
-	int takeDamage(int damage_per_tick, int nof_ticks, DamageType dmg_type);
-	int takeDamage(int damage); // polymorphism
+	int calculateDamage(int damage_per_tick, int nof_ticks, DamageType dmg_type);
+	int calculateDamage(int damage); // polymorphism
 	int modifyValue(int amount);
 
 public:
@@ -76,7 +83,7 @@ public:
 
 
 
-typedef class MagicArmorClass :public ArmorModifierClass
+typedef class MagicArmorClass : ArmorModifierClass
 {
 	/*int applyModifier(int value);
 	int modifyValue(int amount);
@@ -90,7 +97,7 @@ typedef class MagicArmorClass :public ArmorModifierClass
 } * MagicArmor;
 
 
-typedef class PhysicalArmorClass : public  ArmorModifierClass
+typedef class PhysicalArmorClass :  ArmorModifierClass
 {
 
 
@@ -104,11 +111,14 @@ public:
 typedef class HealingModifierClass : modifierClass
 {
 
-	int value;
+protected:
 	HealthBar healthBarRef;
+	int calculateHealing(int healing);
 
 public:
 	//void getParent(HealthBar* emptyRef);  // re-writting virtual
+	int getParent(void* ref) override;
+	int setParent(void* ref) override;
 } 
  * HealingModifier;
 

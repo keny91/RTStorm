@@ -65,6 +65,29 @@ int ArmorClass::setHealthBarRef(void * health_Ref)
 	return GE_RETURN_OK;
 }
 
+int ArmorClass::addPermanentArmor(ArmorType type, int value) 
+{
+	switch (type)
+	{
+
+		// add both
+	case FullArmor:
+
+		break;
+		
+	case Magical:
+
+		break;
+
+	case Physical:
+
+		break;
+
+	default:
+
+		break;
+	}
+}
 
 
 ArmorClass::~ArmorClass()
@@ -127,7 +150,7 @@ int ArmorModifierClass::modifyValue(int amount)
 
 
 
-int ArmorModifierClass::takeDamage(int damage) 
+int ArmorModifierClass::calculateDamage(int damage)
 {
 	int resultingDamage;
 	//Armor parentRef;
@@ -160,7 +183,10 @@ int ArmorModifierClass::setParent(void* ref)
 /*****	Start of PhysicalArmorClass Definition	*****/
  PhysicalArmorClass::PhysicalArmorClass()
 {
-
+	 inverseProportional = TRUE;
+	 modValue = 0;
+	 maxCap = 75;
+	 minCap = -30;
 }
 
  /*****	End of PhysicalArmorClass Definition	*****/
@@ -168,8 +194,47 @@ int ArmorModifierClass::setParent(void* ref)
  /*****	Start of MagicArmorClass Definition	*****/
  MagicArmorClass::MagicArmorClass()
  {
-
+	 baseValue = 0;
+	 inverseProportional = TRUE;
+	 modValue = baseValue;
+	 maxCap = 75;
+	 minCap = -30;
  }
 
 
  /*****	End of MagicArmorClass Definition	*****/
+
+
+
+ /*****	Start of Healing Modifier Definition	*****/
+ int HealingModifierClass::getParent(void* health_Bar_Ref)
+ {
+	 health_Bar_Ref = (void*)healthBarRef;
+	 return GE_RETURN_OK;
+ }
+
+ int HealingModifierClass::setParent(void* health_Bar_Ref)
+ {
+	 healthBarRef = (HealthBar)health_Bar_Ref;
+	 return GE_RETURN_OK;
+ }
+
+ int HealingModifierClass::calculateHealing(int healing) 
+ {
+	 int result;
+	 result = modValue * healing + healing;
+	 return result;
+ }
+
+
+ HealingModifierClass::HealingModifierClass()
+ {
+	 inverseProportional = FALSE;
+	 maxCap = -100;
+	 minCap = 100;
+	 baseValue = 0;
+	 modValue = baseValue;
+	 
+ }
+
+ /***** End	Healing Modifier Definition	*****/

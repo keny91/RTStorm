@@ -25,3 +25,8 @@ int modifierClass::modifyValue(int amount)
 
 
 /*****	End of modifierClass Definition	*****/
+
+
+/*****	Start of modifierClass Definition	*****/
+
+/*****	End of modifierClass Definition	*****/
