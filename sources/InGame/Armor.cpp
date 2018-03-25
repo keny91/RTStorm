@@ -72,21 +72,88 @@ int ArmorClass::addPermanentArmor(ArmorType type, int value)
 
 		// add both
 	case FullArmor:
-
+		baseValue = value;
+		magicArmor->setPermanentArmor(value);
+		physicalArmor->setPermanentArmor(value);
 		break;
 		
 	case Magical:
-
+		magicArmor->setPermanentArmor(value);
 		break;
 
 	case Physical:
-
+		physicalArmor->setPermanentArmor(value);
 		break;
 
 	default:
-
+		// error? invalid armortype
 		break;
 	}
+}
+
+
+
+int ArmorClass::modifyArmor(ArmorType type, int value)
+{
+	switch (type)
+	{
+
+		// add both
+	case FullArmor:
+		currentArmorValue = value;
+		magicArmor->modifyValue(value);
+		physicalArmor->modifyValue(value);
+		break;
+
+	case Magical:
+		magicArmor->modifyValue(value);
+		break;
+
+	case Physical:
+		physicalArmor->modifyValue(value);
+		break;
+
+	default:
+		// error? invalid armortype
+		break;
+	}
+}
+
+int ArmorClass::takeDamage(int damage, DamageType dmg_type) 
+{
+	int result_dmg;
+	switch (dmg_type)
+	{
+		//TrueDamage, PhysicalDamage, MagicDamage, PercentDamege
+		// add both
+	case TrueDamage:
+		// ignores armor
+		result_dmg = damage;
+		break;
+
+	case MagicDamage:
+		result_dmg = magicArmor->calculateDamage(damage);
+		break;
+
+	case PhysicalDamage:
+		result_dmg = physicalArmor->calculateDamage(damage);
+		break;
+
+	case PercentDamege:
+		// ignores armor
+		// NEED PERCENTAGE CALCULATOR... better the amount should be got before
+		// damage will be the resulting dmg number
+		// no armor check required
+		result_dmg = damage;
+		break;
+
+	default:
+		// error? invalid armortype
+		break;
+	}
+
+
+
 }
 
 
@@ -174,6 +241,16 @@ int ArmorModifierClass::setParent(void* ref)
 	return GE_RETURN_OK;
 }
 
+int ArmorModifierClass::setPermanentArmor(int value)
+{
+	if (value <= maxCap && value >= minCap)
+		baseValue = value;
+	else
+		return GE_RETURN_INVALID_INPUT;
+
+	return GE_RETURN_OK;
+}
+
 /*****	End of ArmorModifierClass Definition	*****/
 
 
@@ -188,6 +265,8 @@ int ArmorModifierClass::setParent(void* ref)
 	 maxCap = 75;
 	 minCap = -30;
 }
+
+
 
  /*****	End of PhysicalArmorClass Definition	*****/
 

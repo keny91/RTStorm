@@ -41,7 +41,7 @@ protected:
 	Armor armor;
 	HealingModifier healingModifier;
 	int setParent(Character character_reference);
-
+	int getParent(Character character_reference);
 
 public:
 	// Function makes damage interact with target's Armor
@@ -69,7 +69,7 @@ public:
 
 	ManaBarClass(int base_armor, Character char_reference);
 	ManaBarClass();
-	ManaBarClass();
+	~ManaBarClass();
 
 }  *ManaBar;
 

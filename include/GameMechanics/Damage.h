@@ -34,7 +34,7 @@ class Damage {
 
 protected:
 	int value;
-	damageType type;
+	DamageType type;
 	
 	bool isModifiable;
 	bool ignoresArmor;

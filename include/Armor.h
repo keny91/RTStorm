@@ -20,7 +20,11 @@ enum ArmorType {
 
 
 // Move to damage?
-extern enum DamageType;
+//extern enum DamageType;  // repeat definition
+enum DamageType {
+	TrueDamage, PhysicalDamage, MagicDamage, PercentDamege
+};
+
 
 typedef class ArmorClass
 {
@@ -54,7 +58,7 @@ public:
 
 
 
-typedef class  ArmorModifierClass : modifierClass 
+typedef class  ArmorModifierClass : public  modifierClass 
 {
 
 protected:
@@ -68,14 +72,15 @@ protected:
 	int modValue;
 	int maxCap;
 	int minCap;
+	int baseValue;
 	bool inverseProportional;
-
+	
 	/* Take damage -> create a ref to health*/
+public:
 	int calculateDamage(int damage_per_tick, int nof_ticks, DamageType dmg_type);
 	int calculateDamage(int damage); // polymorphism
 	int modifyValue(int amount);
-
-public:
+	int setPermanentArmor(int value);
 	int getParent(void* ref) override;
 	int setParent(void* ref) override;
 }*ArmorModifier;
@@ -83,12 +88,16 @@ public:
 
 
 
-typedef class MagicArmorClass : ArmorModifierClass
+typedef class MagicArmorClass : public ArmorModifierClass
 {
 	/*int applyModifier(int value);
 	int modifyValue(int amount);
 	bool reachedCap();
 	void getParent() = 0;*/
+
+protected:
+	//int setParent(void* ref);
+	//int getParent(void* ref);
 	//void getParent();
 	public:
 	MagicArmorClass();
@@ -97,7 +106,7 @@ typedef class MagicArmorClass : ArmorModifierClass
 } * MagicArmor;
 
 
-typedef class PhysicalArmorClass :  ArmorModifierClass
+typedef class PhysicalArmorClass : public ArmorModifierClass
 {
 
 

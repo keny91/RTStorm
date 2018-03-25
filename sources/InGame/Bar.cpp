@@ -133,6 +133,8 @@ int HealthBarClass::takeDamage(int value, DamageType dmg_type)
 
 /*****	End of HealthBarClass Definition	*****/
 
+
+/*****	Start of BarClass Definition	*****/
 int ManaBarClass::modifyMana(int value) 
 {
 
