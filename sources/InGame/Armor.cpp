@@ -142,6 +142,7 @@ int ArmorClass::takeDamage(int damage, DamageType dmg_type)
 	case PercentDamege:
 		// ignores armor
 		// NEED PERCENTAGE CALCULATOR... better the amount should be got before
+		parentHealthRef->
 		// damage will be the resulting dmg number
 		// no armor check required
 		result_dmg = damage;
@@ -206,7 +207,7 @@ int ArmorModifierClass::modifyValue(int amount)
 {
 	modValue += amount;
 
-	// Don´t Allow the modValue to go beyond constrains
+	// Donï¿½t Allow the modValue to go beyond constrains
 	if (modValue > maxCap)
 		modValue = maxCap;
 	else if (modValue < minCap)

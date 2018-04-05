@@ -22,6 +22,8 @@ protected:
 	int modifyValue(int value, int *excess);
 	/*int checkModification(int value);*/
 	int getPercentageFilled(int * perc_val_ref);
+	int getPercentageMissing(int * perc_val_ref);
+	int getAmountByPercentage(int  perc_val, int *ret_val);
 	bool isAboveTH(int perc_th);
 	bool isBelowTH(int perc_th);
 	virtual int setParent() = 0;  // must be implemented for child classes

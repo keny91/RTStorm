@@ -73,6 +73,13 @@ int BarClass::getPercentageFilled(int * perc_val_ref)
 	return GE_RETURN_OK;
 }
 
+
+int BarClass::getPercentageMissing(int * perc_val_ref)
+{
+	*perc_val_ref = getPercentageFilled(perc_val_ref);
+	return GE_RETURN_OK;
+}
+
 bool BarClass::isAboveTH(int perc_th)
 {
 	int percent_value;
@@ -81,6 +88,19 @@ bool BarClass::isAboveTH(int perc_th)
 		return true;
 	else
 		return false;
+}
+
+
+int BarClass::getAmountByPercentage(int  perc_val, int *ret_val) 
+{
+	int tmp;
+
+	if (perc_val > 100 || perc_val < 0)
+		return GE_RETURN_INVALID_INPUT;
+
+	*ret_val = maxBarValue * perc_val / 100; // 
+
+	return GE_RETURN_OK;
 }
 
 bool BarClass::isBelowTH(int perc_th)
