@@ -122,7 +122,7 @@ typedef class HealingModifierClass : modifierClass
 
 protected:
 	HealthBar healthBarRef;
-	int calculateHealing(int healing);
+	int calculateHeal(int healing);
 
 public:
 	//void getParent(HealthBar* emptyRef);  // re-writting virtual

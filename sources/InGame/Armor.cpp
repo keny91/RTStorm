@@ -142,10 +142,10 @@ int ArmorClass::takeDamage(int damage, DamageType dmg_type)
 	case PercentDamege:
 		// ignores armor
 		// NEED PERCENTAGE CALCULATOR... better the amount should be got before
-		parentHealthRef->
+		parentHealthRef->getHealthAmountByPercentage(damage, &result_dmg);
 		// damage will be the resulting dmg number
 		// no armor check required
-		result_dmg = damage;
+		//result_dmg = damage;
 		break;
 
 	default:
@@ -154,7 +154,7 @@ int ArmorClass::takeDamage(int damage, DamageType dmg_type)
 	}
 
 
-
+	return result_dmg;
 }
 
 
@@ -186,8 +186,6 @@ int ArmorModifierClass::setParent(void* ref)
 	{
 		return GE_RETURN_INVALID_REF_TYPE;
 	}
-
-
 
 }
 
@@ -299,7 +297,7 @@ int ArmorModifierClass::setPermanentArmor(int value)
 	 return GE_RETURN_OK;
  }
 
- int HealingModifierClass::calculateHealing(int healing) 
+ int HealingModifierClass::calculateHeal(int healing) 
  {
 	 int result;
 	 result = modValue * healing + healing;

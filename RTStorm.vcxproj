@@ -162,6 +162,7 @@
     <ClInclude Include="Hero.h" />
     <ClInclude Include="include\Armor.h" />
     <ClInclude Include="include\Bar.h" />
+    <ClInclude Include="include\Character.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameEngine.h" />
     <ClInclude Include="include\GameMechanics\Damage.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Character.cpp" />
     <ClCompile Include="RTStorm.cpp" />
     <ClCompile Include="sources\Engine\Score.cpp" />
     <ClCompile Include="sources\InGame\Armor.cpp" />

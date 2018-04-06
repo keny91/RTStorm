@@ -1,8 +1,11 @@
-#pragma once
+
 #ifndef _BAR_H_
 #define _BAR_H_ 
 
 #include "Armor.h"
+
+// I can keep this here without #include
+extern class * Character; 
 
 #define BAR_ALL_GOOD 0
 #define BAR_REACHED_EMPTY 1
@@ -42,13 +45,18 @@ typedef class HealthBarClass : public BarClass
 protected:
 	Armor armor;
 	HealingModifier healingModifier;
-	int setParent(Character character_reference);
-	int getParent(Character character_reference);
+	Character characaterParentRef;
+
+	int setParent(void* character_reference);
+	int getParent(void* character_reference);
 
 public:
 	// Function makes damage interact with target's Armor
 	int takeDamage(int value, DamageType dmg_type);
 	int takeDamage(int value, DamageType dmg_type ,int nof_ticks);
+	int getHealthAmountByPercentage(int  perc_val, int *ret_val);
+	int getHealthPercentageMissing(int * perc_val_ref);
+	int getPercentageFilled(int * perc_val_ref);
 	// Function makes healing interact with target's healModifier
 	int healDamage(int value); 
 	int healDamage(int value, int nof_ticks);
@@ -62,14 +70,17 @@ public:
 typedef class ManaBarClass : public BarClass
 {
 protected:
-	int setParent(Character character_reference);
+	int setParent(void* character_reference);
+	int getParent(void* character_reference);
+	Character characaterParentRef;
 
 
 public:
 	// Function makes damage interact with target's Armor
 	int modifyMana(int value);
+	
 
-	ManaBarClass(int base_armor, Character char_reference);
+	ManaBarClass(Character char_reference);
 	ManaBarClass();
 	~ManaBarClass();
 

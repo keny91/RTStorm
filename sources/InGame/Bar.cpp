@@ -129,9 +129,48 @@ HealthBarClass::HealthBarClass(int base_armor, Character character_reference)
 	setParent(character_reference);  // link with character
 }
 
-//int HealthBarClass::CreateHealthBar()
+
+int HealthBarClass::getParent(void* ref)
+{
+	// our armorClass ref is passed as a generic void*
+	ref = characaterParentRef;
+}
+
+int HealthBarClass::setParent(void* ref)
+{
+
+	characaterParentRef = (Character)ref;
+	// check if it worked and we can properly read the structure
+	// property accesible
+	if (characaterParentRef)
+		return GE_RETURN_OK;
+	else
+	{
+		return GE_RETURN_INVALID_REF_TYPE;
+	}
+}
+
+int HealthBarClass::getHealthAmountByPercentage(int  perc_val, int *ret_val) 
+{
+	int rc;
+	rc = getAmountByPercentage( perc_val, ret_val); //call to inherited funct
+	return rc;
+}
+
+int HealthBarClass::getHealthPercentageMissing(int * perc_val_ref) 
+{
+	int rc;
+	rc = getPercentageMissing(perc_val_ref); //call to inherited funct
+	return rc;
+}
 
 
+int HealthBarClass::getPercentageFilled(int * perc_val_ref)
+{
+	int rc;
+	rc = getPercentageFilled(perc_val_ref); //call to inherited funct
+	return rc;
+}
 HealthBarClass::~HealthBarClass()
 {
 	delete(armor);
@@ -144,17 +183,45 @@ int HealthBarClass::takeDamage(int value, DamageType dmg_type)
 	int rc;
 	int dmg_value;
 
+	// only positive values
+	if (value <= 0)
+		return GE_RETURN_INVALID_INPUT;
+
+	//is mitigation applied
 	dmg_value = armor->takeDamage(value, dmg_type);
-	rc = modifyValue(value);
+	rc = modifyValue(dmg_value);
 
 	return rc;
 }
 
 
+int HealthBarClass::healDamage(int value)
+{
+	int rc;
+	int dmg_value;
+
+	// only positive values
+	if (value <= 0)
+		return GE_RETURN_INVALID_INPUT;
+
+	dmg_value = healingModifier->calculateHeal(value);
+	rc = modifyValue(value);
+
+	return rc;
+}
+
 /*****	End of HealthBarClass Definition	*****/
 
 
 /*****	Start of BarClass Definition	*****/
+
+/* Value can be either positive or negative */
+
+ManaBarClass::ManaBarClass() 
+{
+	
+}
+
 int ManaBarClass::modifyMana(int value) 
 {
 
@@ -162,6 +229,26 @@ int ManaBarClass::modifyMana(int value)
 	return GE_RETURN_OK;
 }
 
+
+int ManaBarClass::getParent(void* ref)
+{
+	// our armorClass ref is passed as a generic void*
+	ref = characaterParentRef;
+}
+
+int ManaBarClass::setParent(void* ref)
+{
+
+	characaterParentRef = (Character)ref;
+	// check if it worked and we can properly read the structure
+	// property accesible
+	if (characaterParentRef)
+		return GE_RETURN_OK;
+	else
+	{
+		return GE_RETURN_INVALID_REF_TYPE;
+	}
+}
 
 //// NOT CORRECT -> Must set all armors (armor, mArmor, pArmor)
 //int HealthBarClass::CreateArmor(Armor* armorEmptyRef, int base_value = 0)
