@@ -81,6 +81,9 @@
     <ClInclude Include="include\Character.h">
       <Filter>Header Files\InGame</Filter>
     </ClInclude>
+    <ClInclude Include="include\CharacterStatus.h">
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

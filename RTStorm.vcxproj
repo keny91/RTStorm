@@ -163,6 +163,7 @@
     <ClInclude Include="include\Armor.h" />
     <ClInclude Include="include\Bar.h" />
     <ClInclude Include="include\Character.h" />
+    <ClInclude Include="include\CharacterStatus.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameEngine.h" />
     <ClInclude Include="include\GameMechanics\Damage.h" />
