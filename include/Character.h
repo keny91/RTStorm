@@ -27,18 +27,24 @@ protected:
 	DuList StatusQueue;  // any entiti will have a queue
 							// this queue might have the detailed time events (and a reference to the MAIN time queue)
 
+	Hero heroParentRef;
+
 		//int BasicAttack;
 
 	bool Mountable;
 	int MoveSpeed;
 	HealthBar healthBar;
 	ManaBar manaBar;
+
 	bool isDead;
+
 
 	BasicAttack basicAttack;
 
 
 public:
+	int setParentHero(void * ref);
+	int getParentHero(void * ref);
 
 } Character;
 

@@ -116,5 +116,8 @@
     <ClCompile Include="include\Character.cpp">
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
+    <ClCompile Include="sources\InGame\Character.cpp">
+      <Filter>Source Files\InGame</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
