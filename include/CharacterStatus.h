@@ -13,7 +13,7 @@ Stunned, Slowed, Rooted, Dazed, Unstopable, Protected, PhysicalProtected, MagicP
 
 
 typedef enum DebufLabels 
-{ Polymorphed ,Stunned, Slowed, Rooted, Dazed, Unstopable, Protected, PhysicalProtected, MagicProtected, Blinded, Stopped 
+{ Polymorphed, Invulnerable, Sleep, Trapped ,Stunned, Slowed, Rooted, Dazed, Unstopable, Protected, PhysicalProtected, MagicProtected, Blinded, Stopped 
 } DebufStatusLabel ;
 
 typedef struct StatusStruct
@@ -48,8 +48,8 @@ typedef struct CharacterStatusStruct
 	// status unkillable
 
 	bool isActiveStatus(double currentTime, StatusLabel status);  
-	int applyTemporal(AlterationStatus theStatusChange, );
-	bool applyStatus();
+	int applyTemporal(AlterationStatus theStatusChange, double duration);
+	bool applyStatus(StatusLabel theStatus, double duration);
 
 
 } * CharacterStatus;

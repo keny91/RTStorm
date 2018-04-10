@@ -3,7 +3,11 @@
 #define _CHARACTER_H_ 
 
 #include "Bar.h"
+#include "du.h"
 //extern enum ArmorType;
+
+
+extern class BasicAttack;  // do later (inherited from class damage source)
 
 typedef class CharacterClass 
 {
@@ -12,6 +16,7 @@ protected:
 	int SetMaxMana(int value);
 	int ModifyHP(int value);
 	int ModifyMana(int value);
+	int ModifyArmor(ArmorType type, int value);
 	int SetBaseArmor(ArmorType type ,int value);
 	int SetBasicAttackDamage(int value);
 	int MountUp();
@@ -19,10 +24,12 @@ protected:
 	int ApplyHeal(int value);
 	int GetStatus();
 
+	DuList StatusQueue;  // any entiti will have a queue
+							// this queue might have the detailed time events (and a reference to the MAIN time queue)
 
 		//int BasicAttack;
 
-		bool Mountable;
+	bool Mountable;
 	int MoveSpeed;
 	HealthBar healthBar;
 	ManaBar manaBar;
