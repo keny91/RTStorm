@@ -2,14 +2,33 @@
 #ifndef _CHARACTER_H_
 #define _CHARACTER_H_ 
 
+
+
+
 #include "Bar.h"
 #include "du.h"
 //extern enum ArmorType;
 
 
 extern class BasicAttack;  // do later (inherited from class damage source)
+extern class CharacterValueModTable;
+extern class CharacterStats;
+extern class EntityClass;   // parent class
 
-typedef class CharacterClass 
+
+
+/*** Description: Character
+
+		Description: any entity can be a character.
+		Characters have a healthbar, move and have a basic attack.
+		(Some may be linked to a hero which they report their value to)
+
+		Characters are created from a character template.
+
+		Character examples: zagara´s roaches/hydras, zul´s skellys
+
+*/
+typedef class CharacterClass : public EntityClass
 {
 protected:
 	int SetMaxHP(int value);
@@ -17,36 +36,59 @@ protected:
 	int ModifyHP(int value);
 	int ModifyMana(int value);
 	int ModifyArmor(ArmorType type, int value);
-	int SetBaseArmor(ArmorType type ,int value);
+	int SetBaseArmor(ArmorType type, int value);
 	int SetBasicAttackDamage(int value);
 	int MountUp();
 	int ApplyDamage(int value, DamageType type);
 	int ApplyHeal(int value);
 	int GetStatus();
 
+	int getCurrentHP();
+	double getCurrentHPpercentage();
+
+
 	DuList StatusQueue;  // any entiti will have a queue
 							// this queue might have the detailed time events (and a reference to the MAIN time queue)
 
 	Hero heroParentRef;
 
-		//int BasicAttack;
+	//int BasicAttack;
 
 	bool Mountable;
+	bool isHeroicTarget; //
+	bool hasMana;
+
 	int MoveSpeed;
 	HealthBar healthBar;
-	ManaBar manaBar;
+	//ManaBar manaBar;
+
 
 	bool isDead;
 
+	//
+	BasicAttack *basicAttack; // common to all 
 
-	BasicAttack basicAttack;
+	// Specific Value Table unique for each character
+	CharacterValueModTable *modifierTable;
 
+	// 
+	CharacterStats * stats;
 
 public:
 	int setParentHero(void * ref);
 	int getParentHero(void * ref);
 
-} Character;
+}*Character;
+
+
+
+typedef class HeroCharacterClass : EntityClass
+{
+	HeroCharacterClass();
+	HeroCharacterClass();
+	~HeroCharacterClass();
+
+}*HeroCharacter;
 
 
 #endif  // _CHARACTER_H_ 

@@ -1,10 +1,26 @@
-#pragma once
+
+#ifndef _CHARACTER_STATUS_H_
+#define _CHARACTER_STATUS_H_ 
 
 
 #define STATUS_ACTIVE 1
 #define STATUS_EXPIRED 2
+#define STATUS_APPLYED_OVERLAPED 3  // ex: if we want to apply a stun to an already stunned target.
+#define STATUS_APPLYED_NOT_OVERLAPED 4
 #define INVALID_STATUS -1
 
+
+
+/***** Status:
+
+Description: status are pre-defined modification which will label
+characters/buildings/entities based on their current situation.
+
+This will later help calculate value in the value engine. Value will
+increase the more significant the status applied, therefore we
+will take into account a possible overlap output.
+
+*/
 
 enum StatusLabel 
 {
@@ -24,8 +40,8 @@ typedef struct StatusStruct
 	ActiveTimeSpan timeWindow;
 	StatusLabel statusName;
 public:
-	double ActivateStatus(double duration);
-	double ActivateStatus(double start_time, double end_time);
+	int ActivateStatus(double duration , double time_overlap);
+	int ActivateStatus(double start_time, double end_time, double time_overlap);
 	bool isActive(double Time);
 
 }*Status;
@@ -72,3 +88,5 @@ typedef struct ActiveTimeSpanStruct
 
 }*ActiveTimeSpan;
 
+
+#endif  // _CHARACTER_STATUS_H_ 
