@@ -17,6 +17,9 @@ extern class EntityClass;   // parent class
 
 
 
+enum EnergySource {Mana, Energy, Manaless, Rage, Other};
+
+
 /*** Description: Character
 
 		Description: any entity can be a character.
@@ -26,6 +29,20 @@ extern class EntityClass;   // parent class
 		Characters are created from a character template.
 
 		Character examples: zagara´s roaches/hydras, zul´s skellys
+
+
+		Characters are loaded from an xml. CharacterParser class:
+		Insert ".xml"
+		
+		CreateCharacter(label character);
+		CreateHeroCharacter(label heroCharacter){
+		xmlpath="./data/characters/"+characterLabel/dictionary.toString()+".xml";
+		
+		// load whatever data is in the xml labels into classes
+		loadCharacter(Character the_char, xmlpath);
+
+		}
+
 
 */
 typedef class CharacterClass : public EntityClass
@@ -50,7 +67,7 @@ protected:
 	DuList StatusQueue;  // any entiti will have a queue
 							// this queue might have the detailed time events (and a reference to the MAIN time queue)
 
-	Hero heroParentRef;
+	
 
 	//int BasicAttack;
 
@@ -61,7 +78,9 @@ protected:
 	int MoveSpeed;
 	HealthBar healthBar;
 	//ManaBar manaBar;
+	EnergySource energySource;
 
+	Hero heroParentRef;
 
 	bool isDead;
 
