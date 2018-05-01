@@ -41,6 +41,12 @@ int BarClass::modifyValue(int value)
 }
 
 
+int BarClass::modifyMaxValue(int value) 
+{
+	maxBarValue = value;
+	return GE_RETURN_OK;
+}
+
 int BarClass::modifyValue(int value, int * excess)
 {
 	int calculatedValue;

@@ -23,6 +23,7 @@ protected:
 	bool checkEmpty();
 	int modifyValue(int value);
 	int modifyValue(int value, int *excess);
+	
 	/*int checkModification(int value);*/
 	int getPercentageFilled(int * perc_val_ref);
 	int getPercentageMissing(int * perc_val_ref);
@@ -35,6 +36,7 @@ public:
 	BarClass();
 	~BarClass();
 	void SetCallBack_On_Empty(void*);
+	int modifyMaxValue(int value);
 
 }  * Bar;
 

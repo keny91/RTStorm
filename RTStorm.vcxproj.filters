@@ -84,6 +84,9 @@
     <ClInclude Include="include\CharacterStatus.h">
       <Filter>Header Files\InGame</Filter>
     </ClInclude>
+    <ClInclude Include="include\Character_Structs.h">
+      <Filter>Header Files\InGame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -117,6 +120,9 @@
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
     <ClCompile Include="sources\InGame\Character.cpp">
+      <Filter>Source Files\InGame</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Character_Structs.cpp">
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
   </ItemGroup>

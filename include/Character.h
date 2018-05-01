@@ -7,17 +7,15 @@
 
 #include "Bar.h"
 #include "du.h"
+#include "Character_Structs.h"
 //extern enum ArmorType;
 
 
-extern class BasicAttack;  // do later (inherited from class damage source)
-extern class CharacterValueModTable;
-extern class CharacterStats;
-extern class EntityClass;   // parent class
 
 
 
-enum EnergySource {Mana, Energy, Manaless, Rage, Other};
+
+
 
 
 /*** Description: Character
@@ -47,9 +45,13 @@ enum EnergySource {Mana, Energy, Manaless, Rage, Other};
 */
 typedef class CharacterClass : public EntityClass
 {
+
+	CharacterClass();
+	~CharacterClass();
+
 protected:
 	int SetMaxHP(int value);
-	int SetMaxMana(int value);
+	//int SetMaxMana(int value);
 	int ModifyHP(int value);
 	int ModifyMana(int value);
 	int ModifyArmor(ArmorType type, int value);
@@ -75,14 +77,24 @@ protected:
 	bool isHeroicTarget; //
 	bool hasMana;
 
-	int MoveSpeed;
+
+
+	// Maybe create a class for movement?
+	Move Movement;
 	HealthBar healthBar;
 	//ManaBar manaBar;
+
+	// void * so any reference can be assigned to this EnergyBar ref?
 	EnergySource energySource;
 
-	Hero heroParentRef;
 
+	
+	//Hero heroParentRef;
+
+	// flag that marks is a character is 
 	bool isDead;
+
+	
 
 	//
 	BasicAttack *basicAttack; // common to all 
@@ -101,11 +113,34 @@ public:
 
 
 
-typedef class HeroCharacterClass : EntityClass
+typedef class HeroCharacterClass : CharacterClass
 {
 	HeroCharacterClass();
-	HeroCharacterClass();
 	~HeroCharacterClass();
+
+	int SetMaxMana(int value); // max energy?
+
+	// extra definitions:
+	// should this be only defined for Hero-characters?
+	bool isRespawnable;
+
+	// is multiple Heroes -> lost vikings/rexxar
+	bool isMultipleHeroes;
+
+	// set the references of all the heroes linked to the player in the different heroes
+	// ex: setCallbackLinkMultipleHeroes(setRexxar(), [Rexxar_ref,Misha_ref]);
+	int setCallbackLinkMultipleHeroes(void* funct, Hero the_heroes_list);
+
+
+	// is multiple Players -> chogall
+	// cho & gall are two heroes
+	bool isMultiplePlayers;
+	//	unnecessary ?
+	int setCallbackLinkMultiplePlayers(void* funct, Player the_heroes_list);
+
+	// reference to the hero which is the class  this one.
+	Hero parentHeroRef;
+	EnergySource energySource;
 
 }*HeroCharacter;
 
