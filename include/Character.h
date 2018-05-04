@@ -14,7 +14,18 @@
 
 
 
+/* This struct should communicate with any kind of hero energy class */
 
+
+typedef struct EnergySourceStruct 
+{
+	typedef void* energyRef;
+	energyRef theBar;
+
+	int SetMaxValue();
+
+	void * SetMaxCB;
+}EnergySource;
 
 
 
@@ -118,7 +129,7 @@ typedef class HeroCharacterClass : CharacterClass
 	HeroCharacterClass();
 	~HeroCharacterClass();
 
-	int SetMaxMana(int value); // max energy?
+	int SetMaxEnergybar(int value); // max energy?
 
 	// extra definitions:
 	// should this be only defined for Hero-characters?
