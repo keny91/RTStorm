@@ -17,15 +17,30 @@
 /* This struct should communicate with any kind of hero energy class */
 
 
+
+enum ResourceBarTypes {mana, none, energy, rage, ow_ulti, other};
+
+
+
+extern enum HeroTemplateList;  // each will load a hero on a template
+ex
+
+
+
+
 typedef struct EnergySourceStruct 
 {
 	typedef void* energyRef;
 	energyRef theBar;
+public:
+	int SetMaxValue(int maxValue);
 
-	int SetMaxValue();
+	/*Each type creates a new internal class for the bar resource*/
+	EnergySourceStruct(int maxValue, ResourceBarTypes type, HeroCharacter characaterParentRef);
+
 
 	void * SetMaxCB;
-}EnergySource;
+}* EnergySource;
 
 
 
@@ -126,9 +141,16 @@ public:
 
 typedef class HeroCharacterClass : CharacterClass
 {
-	HeroCharacterClass();
+	HeroCharacterClass(HeroTemplate theTemplate);
 	~HeroCharacterClass();
+	
+	
+public:
+	EnergySource ResourceBar;
 
+
+
+private:
 	int SetMaxEnergybar(int value); // max energy?
 
 	// extra definitions:
@@ -151,7 +173,7 @@ typedef class HeroCharacterClass : CharacterClass
 
 	// reference to the hero which is the class  this one.
 	Hero parentHeroRef;
-	EnergySource energySource;
+	
 
 }*HeroCharacter;
 

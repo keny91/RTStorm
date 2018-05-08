@@ -225,7 +225,14 @@ int HealthBarClass::healDamage(int value)
 
 ManaBarClass::ManaBarClass() 
 {
-	
+
+	currentBarValue = 0;
+}
+
+ManaBarClass::ManaBarClass(int maxVal)
+{
+	maxBarValue = maxVal;
+	currentBarValue = 0;
 }
 
 int ManaBarClass::modifyMana(int value) 
@@ -242,10 +249,10 @@ int ManaBarClass::getParent(void* ref)
 	ref = characaterParentRef;
 }
 
-int ManaBarClass::setParent(void* ref)
+int ManaBarClass::setParent(void** ref)
 {
 
-	characaterParentRef = (Character)ref;
+	characaterParentRef = (HeroCharacter)*ref;
 	// check if it worked and we can properly read the structure
 	// property accesible
 	if (characaterParentRef)

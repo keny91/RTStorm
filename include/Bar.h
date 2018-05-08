@@ -3,6 +3,7 @@
 #define _BAR_H_ 
 
 #include "Armor.h"
+#include "Character.h"
 
 // I can keep this here without #include
 extern class * Character; 
@@ -19,7 +20,6 @@ typedef class BarClass
 protected:
 	int currentBarValue;
 	int maxBarValue;
-	bool inmune;
 	bool checkEmpty();
 	int modifyValue(int value);
 	int modifyValue(int value, int *excess);
@@ -30,7 +30,8 @@ protected:
 	int getAmountByPercentage(int  perc_val, int *ret_val);
 	bool isAboveTH(int perc_th);
 	bool isBelowTH(int perc_th);
-	virtual int setParent() = 0;  // must be implemented for child classes
+	virtual int setParent(void** ref) = 0;  // must be implemented for child classes
+	virtual int getParent(void* ref) = 0;  // must be implemented for child classes
 
 public:
 	BarClass();
@@ -72,9 +73,9 @@ public:
 typedef class ManaBarClass : public BarClass
 {
 protected:
-	int setParent(void* character_reference);
+	int setParent(void** character_reference);
 	int getParent(void* character_reference);
-	Character characaterParentRef;
+	HeroCharacter characaterParentRef;
 
 
 public:
@@ -82,7 +83,7 @@ public:
 	int modifyMana(int value);
 	
 
-	ManaBarClass(Character char_reference);
+	ManaBarClass(int maxVal);
 	ManaBarClass();
 	~ManaBarClass();
 
