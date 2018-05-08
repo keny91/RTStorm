@@ -125,5 +125,8 @@
     <ClCompile Include="sources\InGame\Character_Structs.cpp">
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
+    <ClCompile Include="sources\InGame\Hero.cpp">
+      <Filter>Source Files\InGame</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

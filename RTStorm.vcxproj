@@ -191,6 +191,7 @@
     <ClCompile Include="sources\InGame\Damage.cpp" />
     <ClCompile Include="sources\InGame\Game.cpp" />
     <ClCompile Include="sources\InGame\GameStructs.cpp" />
+    <ClCompile Include="sources\InGame\Hero.cpp" />
     <ClCompile Include="sources\InGame\Stats.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

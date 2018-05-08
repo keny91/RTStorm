@@ -16,7 +16,7 @@ enum heroName {Abathur, Alarak,Alextraza, Ana, Anubarak, Artanis, Arthas,
 	Tyrande, Uther, Valyra, Valla, Varian, Xul, Zagara, Zarya, Zeratul, Zuljin};
 
 
-
+/* This function will load data from an XML and initialize classes like health*/
 void LoadHeroFromTemplate(heroName name);
 
 
