@@ -81,7 +81,9 @@ protected:
 public:
 	// Function makes damage interact with target's Armor
 	int modifyMana(int value);
-	
+	int getManaAmountByPercentage(int  perc_val, int *ret_val);
+	int getManaPercentageMissing(int * perc_val_ref);
+	//int getPercentageFilled(int * perc_val_ref);  // already defined in bar
 
 	ManaBarClass(int maxVal);
 	ManaBarClass();

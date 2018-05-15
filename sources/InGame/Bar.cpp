@@ -219,7 +219,7 @@ int HealthBarClass::healDamage(int value)
 /*****	End of HealthBarClass Definition	*****/
 
 
-/*****	Start of BarClass Definition	*****/
+/*****	Start of ManaBarClass Definition	*****/
 
 /* Value can be either positive or negative */
 
@@ -249,6 +249,29 @@ int ManaBarClass::getParent(void* ref)
 	ref = characaterParentRef;
 }
 
+
+//int ManaBarClass::getPercentageFilled(int * perc_val_ref)
+//{
+//	int rc;
+//	rc = getPercentageFilled(perc_val_ref); //call to inherited funct
+//	return rc;
+//}
+
+
+int ManaBarClass::getManaAmountByPercentage(int  perc_val, int *ret_val)
+{
+	int rc;
+	rc = getAmountByPercentage(perc_val, ret_val); //call to inherited funct
+	return rc;
+}
+
+int ManaBarClass::getManaPercentageMissing(int * perc_val_ref)
+{
+	int rc;
+	rc = getPercentageMissing(perc_val_ref); //call to inherited funct
+	return rc;
+}
+
 int ManaBarClass::setParent(void** ref)
 {
 
@@ -262,6 +285,10 @@ int ManaBarClass::setParent(void** ref)
 		return GE_RETURN_INVALID_REF_TYPE;
 	}
 }
+
+/*****	End of ManaBarClass Definition	*****/
+
+
 
 //// NOT CORRECT -> Must set all armors (armor, mArmor, pArmor)
 //int HealthBarClass::CreateArmor(Armor* armorEmptyRef, int base_value = 0)
