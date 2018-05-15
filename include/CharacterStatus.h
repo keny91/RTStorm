@@ -51,22 +51,25 @@ public:
 
 typedef struct CharacterStatusStruct 
 {
-	Status Stunned;
-	Status Slowed;
-	Status Rooted;
-	Status Dazed;
-	Status Unstopable;
-	Status Protected;
-	Status PhysicalProtected;
-	Status MagicProtected;
-	Status Blinded;
-	Status Stopped;
+	Status StunnedStatus;
+	Status SlowedStatus;
+	Status RootedStatus;
+	Status DazedStatus;
+	Status UnstopableStatus;
+	Status ProtectedStatus;
+	Status PhysicalProtectedStatus;
+	Status MagicProtectedStatus;
+	Status BlindedStatus;
+	Status StoppedStatus;
 	// status unkillable
 
-	bool isActiveStatus(double currentTime, StatusLabel status);  
+	bool isActiveStatus(double* currentTime, StatusLabel status);  
 	int applyTemporal(AlterationStatus theStatusChange, double duration);
 	bool applyStatus(StatusLabel theStatus, double duration);
 
+
+private:
+	int CharacterStatusStruct::getStatus(StatusLabel status, Status* theStatusRef);
 
 } * CharacterStatus;
 

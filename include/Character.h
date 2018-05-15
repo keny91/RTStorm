@@ -8,6 +8,7 @@
 #include "Bar.h"
 #include "du.h"
 #include "Character_Structs.h"
+#include "CharacterStatus.h"
 //extern enum ArmorType;
 
 
