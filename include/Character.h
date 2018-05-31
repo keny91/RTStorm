@@ -95,9 +95,6 @@ protected:
 
 	DuList StatusQueue;  // any entiti will have a queue
 							// this queue might have the detailed time events (and a reference to the MAIN time queue)
-
-	
-
 	//int BasicAttack;
 
 	bool Mountable;

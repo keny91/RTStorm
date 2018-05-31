@@ -4,7 +4,7 @@
 
 
 
-extern class Area;
+extern class Point;
 
 
 
@@ -21,6 +21,24 @@ typedef public class EntityClass
 
 
 
+/*	Hitbox are for checking impacts of habilities or if a certain point is contained in it.
+	There are multiple types of hitboxes, which will trigger a different "switch case" on call.
+	The way we compare different hits on the same method is by setting a reference point (maybe also rotation)
+	so we can define a hitbox around it.
+	*/
+typedef class HitboxClass
+{
+	enum HitboxType {Circular,Cone,Square,Rectangle};
+	HitboxType theType;
+	void* hitBoxref;
+
+	Point* theRefPoint;
+
+	bool isHitbyHitbox(Hitbox box);
+		bool containsPoint();
+
+}* Hitbox;
+
 
 /*	Basic Attacks is a class to represent the modifiable basic damage
 that many characters do via right click*/
@@ -36,15 +54,15 @@ typedef class BasicAttackClass
 	double AttSpeedRange; // current
 
 	bool hasAreaDamage;  // flag
-	Area AttArea;
+	Hitbox* AttArea;
 
 	bool hasEffect;		// flag
 	Effect AttEffect;
 
-
-
 }*BasicAttack;
 // do later (inherited from class damage source)
+
+
 
 
 
@@ -55,9 +73,9 @@ typedef class MovementClass
 	MovementClass();
 
 	// current MoveSpeed
-	int MoveSpeed;
+	int currentMoveSpeed;
 	// Base MoveSpeed of the character
-	int Base_MoveSpeed;
+	int baseMoveSpeed;
 
 
 
