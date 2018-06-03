@@ -13,6 +13,15 @@ Ex: Death, score, ...
 
 -----------------------------------------------------------------------------*/
 
+
+#ifndef _GAME_H_
+#define _GAME_H_ 
+
+
+#ifdef DEBUG
+
+#endif // DEBUG
+
 #include "du.h"
 #include "Score.h"
 #include "Map.h"
@@ -71,11 +80,11 @@ typedef class ClassGame
 {
 	
 public: 
-	GameClass();
+	ClassGame();
 	// just an internal call to Game(), and player and map linkage.
 	void CreateStandardGame(Map the_Map, Game* game_empty_ptr_ref);
 	void CreateGame()
-	~GameClass(Game* game_empty_ptr_ref);
+	~ClassGame(Game* game_empty_ptr_ref);
 
 protected:
 
@@ -108,20 +117,40 @@ protected:
 	Map* the_map;
 	RTEvent * event_list; // tribute/tower/objective spawn
 
-	int AsignPlayersTeam(Team* the_team,  Player * the_player);
+
 
 	// this will act better as internal structures	
 
 	// Functions
 	
+	// Config-game
 	int StartGame();
+
+
+
 	// next probably goes in "ENGINE"
 	int SetRTContextCallback( (void *) funct);
 	int SetRTNextEventCallback(int timing, (void *) funct );  // New thread should trigger an event when the marked time comes.
 	int InitializeKeyPressCallbacks();  // predefined function that compiles a bunch of ON-KEY-PRESS callbacks.  
+	
+	
+	
+	/* Engine Control*/
 	int InitHostEngine();
 	int CreateTeam(Team* the_team);
 	int CreatePlayer(Player* the_player);
+	int CreatePlayer(Player* the_player, string PlayerName);
+
+	/*	Create a player that is playing with a hero (inserted as param)*/
+	int InitPlayer(Player* thePlayer, string PlayerName, heroName theHero);
+	int AsignPlayersTeam(Team* the_team, Player * the_player);
+	bool CheckTeamsReady();
+	/* Once ready, Create a player and team score for every player and team*/
+	int CreateTeamScore();
+	
+
+
+	int StartGame();
 
 	
 	
@@ -352,7 +381,7 @@ typedef void (*SetRTNextEventCallbackFunc)(RTpassage passage, void* context);
 
 
 
-*/
+#endif
 
 
 

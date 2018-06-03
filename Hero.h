@@ -1,4 +1,3 @@
-#pragma once
 
 #ifndef _HERO_H_
 #define _HERO_H_ 

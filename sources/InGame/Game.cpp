@@ -58,3 +58,46 @@ int GeCreateGame(Ge* ge)
 
 	return MT_RETURN_OK;
 }
+
+
+
+/* Start GameClass */
+
+int ClassGame::InitPlayer(Player* thePlayer, string PlayerName, heroName theHero) {
+	int rc;
+
+	// Step one - set Player name
+	rc = thePlayer->SetName();  // should it realloc the string? or we don´t need to ... player will exist for the map duration
+
+	if (rc != GE_RETURN_OK)
+		return rc;
+
+
+	// step 2 - create hero
+	thePlayer->hero = CreateHerofromTemplate(theHero);
+	
+	if (thePlayer->hero != NULL)
+		return GE_ERROR;
+}
+
+int ClassGame::AsignPlayersTeam(Team* the_team, Player * the_player) {
+
+	// if there is an empty slot add a team menmber
+	int rc = the_team->AddPlayer(the_player);
+	return rc;
+}
+
+bool ClassGame::CheckTeamsReady() {
+
+	// Checks if the flags have been enabled
+	if (team_blue->isReady() && team_red->isReady())
+		return true;
+
+	return false;
+}
+
+int ClassGame::CreateTeamScore() {
+
+}
+
+/*  End Game Class */
