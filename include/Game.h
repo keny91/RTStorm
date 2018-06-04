@@ -146,8 +146,8 @@ protected:
 	int AsignPlayersTeam(Team* the_team, Player * the_player);
 	bool CheckTeamsReady();
 	/* Once ready, Create a player and team score for every player and team*/
-	int CreateTeamScore();
-	
+	int InitTeamScore();
+	int AsignTeamScore(Team theTeam);
 
 
 	int StartGame();

@@ -92,11 +92,35 @@ bool ClassGame::CheckTeamsReady() {
 	// Checks if the flags have been enabled
 	if (team_blue->isReady() && team_red->isReady())
 		return true;
-
+	
 	return false;
 }
 
-int ClassGame::CreateTeamScore() {
+int ClassGame::InitTeamScore() {
+	int rc;
+	// first red team
+	
+
+	rc = AsignTeamScore(team_red);
+	
+	if (rc != GE_RETURN_OK)
+		return rc;
+
+	if (team_blue != NULL)
+		rc = GE_ALREADY_INITIALIZED;
+
+	rc = AsignTeamScore(team_blue);
+
+	return rc;
+}
+
+
+
+int ClassGame::AsignTeamScore(Team theTeam) {
+
+	if (team_red != NULL)
+		rc = GE_ALREADY_INITIALIZED;
+
 
 }
 
