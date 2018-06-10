@@ -165,7 +165,6 @@
     <ClInclude Include="include\Character.h" />
     <ClInclude Include="include\CharacterStatus.h" />
     <ClInclude Include="include\Character_Structs.h" />
-    <ClInclude Include="include\CoreControl.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameEngine.h" />
     <ClInclude Include="include\GameMechanics\Damage.h" />
@@ -182,8 +181,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CoreControl.cpp" />
     <ClCompile Include="include\Character.cpp" />
+    <ClCompile Include="include\Team.cpp" />
     <ClCompile Include="RTStorm.cpp" />
     <ClCompile Include="sources\Engine\Score.cpp" />
     <ClCompile Include="sources\InGame\Armor.cpp" />
@@ -194,6 +193,7 @@
     <ClCompile Include="sources\InGame\Game.cpp" />
     <ClCompile Include="sources\InGame\GameStructs.cpp" />
     <ClCompile Include="sources\InGame\Hero.cpp" />
+    <ClCompile Include="sources\InGame\Player.cpp" />
     <ClCompile Include="sources\InGame\Stats.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

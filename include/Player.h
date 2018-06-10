@@ -17,6 +17,11 @@ using namespace std;
 #include "du.h"
 #include "Hero.h"
 #include <string>
+#include "GE_MSGs.h"
+#include <cstring>
+
+
+using namespace std;
 
 /*  these structs are type-defined in their respective class declaration docs
 typedef _PlayerStadisticsClass * PlayerStadistics;
@@ -39,15 +44,14 @@ private:
 
 
 protected:	
-	string player_name;
-	int PlayerGlobalId;
-	Team playerTeam;  // reference to the team the player belongs to
+
+	
 	PlayerScore player_score;	// reference to score
 	PlayerStadistics player_stadistics;  // ...
 	Rank playerLeague; 
 	Hero selectedHero;   // stat info, char reference, talentable
 	DuList charactersInGame;   // characters might change, or be multiple
-	
+	bool PlayerInitialized = false;
 	//int nof_characters;  // contained in dulist
 
 	
@@ -64,9 +68,12 @@ protected:
 public:
 
 	// protected?
+	int PlayerGlobalId;
+	int PlayerTeamId;
+	string playerName;
 	PlayerClass();
 	~PlayerClass();
-
+	void* parentTeamRef;  // reference to the team the player belongs to
 
 private:
 	int AddCharacter(Character theCharacter); // can be done multiple times, this will add a character 

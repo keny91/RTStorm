@@ -29,6 +29,9 @@ Ex: Death, score, ...
 #include <string>
 #include <iostream>
 #include "Player.h"
+#include "Team.h"
+#include "GE_MSGs.h"
+
 using namespace std;
 
 extern enum heroName;
@@ -47,6 +50,8 @@ typedef struct _HostDataStruct HostData;
 // this is not an exter ref - include the .h
 extern class _CharacterClass;
 typedef class _CharacterClass * Character;
+
+
 
 
 // this is not an exter ref - include the .h
@@ -111,8 +116,8 @@ protected:
 	TeamScore score_team_red;	// reference to score structure
 	TeamScore score_team_blue;
 	
-	Team* team_red;	//	 to team structure
-	Team* team_blue;
+	Team team_red;	//	 to team structure
+	Team team_blue;
 	
 	Map* the_map;
 	RTEvent * event_list; // tribute/tower/objective spawn
@@ -143,7 +148,7 @@ protected:
 
 	/*	Create a player that is playing with a hero (inserted as param)*/
 	int InitPlayer(Player* thePlayer, string PlayerName, heroName theHero);
-	int AsignPlayersTeam(Team* the_team, Player * the_player);
+	int AsignPlayersTeam(Team the_team, Player the_player);	 // POOR NAME, not intuitive
 	bool CheckTeamsReady();
 	/* Once ready, Create a player and team score for every player and team*/
 	int InitTeamScore();

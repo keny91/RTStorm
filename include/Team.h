@@ -3,28 +3,43 @@
 
 #include "du.h"
 #include "Player.h"
+#include "GE_MSGs.h"
+#include <cstdlib>
+#include <iostream>
 
+
+#define DEFAULT_NOF_PLAYERS 5
+
+
+using namespace std;
 //extern class GameClass * Game;
-typedef class GameClass * Game;
-extern enum TeamColor;
+//typedef class GameClass * Game;
+//extern enum TeamColor;
+
 typedef class TeamClass 
 {
 
 public:
 	
-	TeamColor teamColor;
-	DuList PlayerList;
-	bool isFullTeam;
-	TeamClass();
-	~TeamClass();
-	Game parentGame;
+	//TeamColor teamColor;
+	//DuList PlayerList;
+	int nof_max_players;
+	int curr_nof_players;
 
+	Player * playerList;
+	bool isFullTeam;
+
+	TeamClass(int max_players);
+	TeamClass()
+	~TeamClass();
+	//Game parentGame;
+	int addPlayer(Player the_player);
 
 private:
 
 	int nofMaxPlayers;
-	int addPlayer(Player the_player);
-	int setTeamColor(TeamColor color);
+	
+	//int setTeamColor(TeamColor color);
 	int getParentGame(Game* game_reference);
 	
 

@@ -87,9 +87,6 @@
     <ClInclude Include="include\Character_Structs.h">
       <Filter>Header Files\InGame</Filter>
     </ClInclude>
-    <ClInclude Include="include\CoreControl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -131,7 +128,10 @@
     <ClCompile Include="sources\InGame\Hero.cpp">
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
-    <ClCompile Include="CoreControl.cpp">
+    <ClCompile Include="include\Team.cpp">
+      <Filter>Source Files\InGame</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\InGame\Player.cpp">
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
   </ItemGroup>

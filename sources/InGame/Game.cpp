@@ -3,6 +3,7 @@
 
 
 // then in the .c file
+/*	Redo ALL this*/
 int GeCreateGame(Ge* ge)
 {
 	int result;
@@ -74,16 +75,16 @@ int ClassGame::InitPlayer(Player* thePlayer, string PlayerName, heroName theHero
 
 
 	// step 2 - create hero
-	thePlayer->hero = CreateHerofromTemplate(theHero);
+	*(thePlayer)->hero = CreateHerofromTemplate(theHero);  // Defined where? 
 	
 	if (thePlayer->hero != NULL)
-		return GE_ERROR;
+		return GE_RETURN_UNDEFINED_ERROR;
 }
 
-int ClassGame::AsignPlayersTeam(Team* the_team, Player * the_player) {
+int ClassGame::AsignPlayersTeam(Team the_team, Player the_player) {
 
 	// if there is an empty slot add a team menmber
-	int rc = the_team->AddPlayer(the_player);
+	int rc = the_team->addPlayer(the_player);
 	return rc;
 }
 
@@ -107,7 +108,7 @@ int ClassGame::InitTeamScore() {
 		return rc;
 
 	if (team_blue != NULL)
-		rc = GE_ALREADY_INITIALIZED;
+		rc = GE_RETURN_ALREADY_INITIALIZED;
 
 	rc = AsignTeamScore(team_blue);
 
@@ -117,11 +118,16 @@ int ClassGame::InitTeamScore() {
 
 
 int ClassGame::AsignTeamScore(Team theTeam) {
+	int rc; 
 
 	if (team_red != NULL)
-		rc = GE_ALREADY_INITIALIZED;
+		rc = GE_RETURN_ALREADY_INITIALIZED;
 
+	team_red->setPlayerScore();
 
+	rc = GE_RETURN_OK;
+
+		return rc;
 }
 
 /*  End Game Class */
