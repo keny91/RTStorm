@@ -218,96 +218,96 @@ typedef struct _GeRecognitionStruct* GeRecognition;  // Single event to be parse
  * Description:
  *  Finalizes the ...
  *----------------------------------------------------------------------------*/
-extern void GeFinalizeGame(void);
-
-extern int GeCreateGame(Ge* ge);
-
-// then in the .c file
-MT_PUBLIC int MtCreateMt(Mt* mt)
-{
-    int result;
-    Mt the_mt;
-
-
-    if (mt == NULL) return MT_RETURN_NULL_POINTER;
-
-    if (DuInitialize(NULL)!=DU_RETURN_OK)
-      return MT_RETURN_ILLEGAL_VERSION;
-
-    the_mt = (Mt)calloc(1, sizeof(MtStruct));
-    if (the_mt == NULL) return MT_RETURN_OUT_OF_MEMORY;
-	
-#ifdef MT_DEBUG
-	MtDebugLog = fopen(MT_DEBUG_LOG_NAME,"w");
-	fprintf(MtDebugLog, "Creating context... \n" );
-#endif
-
-    result = MtCreateData(&the_mt->data);
-    if (result != MT_RETURN_OK)
-    {
-#ifdef MT_DEBUG
-	fprintf(MtDebugLog, "\tError Creating mt->data: Error %d \n ",  result);
-#endif
-        free(the_mt);
-        return result;
-    }
-    the_mt->data->mt = the_mt;
-
-    result = MtCreateConfig(&the_mt->config);
-    if (result != MT_RETURN_OK)
-    {
-#ifdef MT_DEBUG
-	fprintf(MtDebugLog, "\tError Creating mt->config : Error %d \n ",  result);
-#endif
-        MtDestroyData(the_mt->data);
-        free(the_mt);
-        return result;
-    }
-
-    MtProcessEnvironment(the_mt);
-
-    /* Some starting values may be set through the configuration. */
-    the_mt->data->last_delivered_direction = the_mt->config->initial_direction;
-    the_mt->data->speed = the_mt->config->initial_speed;
-
-    *mt = the_mt;
-
-#ifdef MT_DEBUG
-	fprintf(MtDebugLog, "\t Done... MT context created. \n " );
-#endif
-
-    return MT_RETURN_OK;   
-}
-
-
-
-extern int MtDestroyMt(Ge ge);
-
-// and then in a .C file
-MT_PUBLIC int MtDestroyMt(Mt mt)
-{
-    int result;
-
-    if (mt == NULL) return MT_RETURN_NULL_POINTER;
-
-    MtFlushFilter(mt);
-
-    result = MtDestroyData(mt->data);
-    if (result != MT_RETURN_OK) return result;
-
-    result = MtDestroyConfig(mt->config);
-    if (result != MT_RETURN_OK) return result;
-
-    free(mt);
-
-    return MT_RETURN_OK;
-}
-
-
-typedef void (*GeNewEventCallbackFunc)(GePassage passage, void* context);  // Maybe (void*) instead of RTpassage
-
-extern int GeSetNewEventCallback(
-        Ge ge, GeNewEventCallbackFunc callback, void* context)
+//extern void GeFinalizeGame(void);
+//
+//extern int GeCreateGame(Ge* ge);
+//
+//// then in the .c file
+//MT_PUBLIC int MtCreateMt(Mt* mt)
+//{
+//    int result;
+//    Mt the_mt;
+//
+//
+//    if (mt == NULL) return MT_RETURN_NULL_POINTER;
+//
+//    if (DuInitialize(NULL)!=DU_RETURN_OK)
+//      return MT_RETURN_ILLEGAL_VERSION;
+//
+//    the_mt = (Mt)calloc(1, sizeof(MtStruct));
+//    if (the_mt == NULL) return MT_RETURN_OUT_OF_MEMORY;
+//	
+//#ifdef MT_DEBUG
+//	MtDebugLog = fopen(MT_DEBUG_LOG_NAME,"w");
+//	fprintf(MtDebugLog, "Creating context... \n" );
+//#endif
+//
+//    result = MtCreateData(&the_mt->data);
+//    if (result != MT_RETURN_OK)
+//    {
+//#ifdef MT_DEBUG
+//	fprintf(MtDebugLog, "\tError Creating mt->data: Error %d \n ",  result);
+//#endif
+//        free(the_mt);
+//        return result;
+//    }
+//    the_mt->data->mt = the_mt;
+//
+//    result = MtCreateConfig(&the_mt->config);
+//    if (result != MT_RETURN_OK)
+//    {
+//#ifdef MT_DEBUG
+//	fprintf(MtDebugLog, "\tError Creating mt->config : Error %d \n ",  result);
+//#endif
+//        MtDestroyData(the_mt->data);
+//        free(the_mt);
+//        return result;
+//    }
+//
+//    MtProcessEnvironment(the_mt);
+//
+//    /* Some starting values may be set through the configuration. */
+//    the_mt->data->last_delivered_direction = the_mt->config->initial_direction;
+//    the_mt->data->speed = the_mt->config->initial_speed;
+//
+//    *mt = the_mt;
+//
+//#ifdef MT_DEBUG
+//	fprintf(MtDebugLog, "\t Done... MT context created. \n " );
+//#endif
+//
+//    return MT_RETURN_OK;   
+//}
+//
+//
+//
+//extern int MtDestroyMt(Ge ge);
+//
+//// and then in a .C file
+//MT_PUBLIC int MtDestroyMt(Mt mt)
+//{
+//    int result;
+//
+//    if (mt == NULL) return MT_RETURN_NULL_POINTER;
+//
+//    MtFlushFilter(mt);
+//
+//    result = MtDestroyData(mt->data);
+//    if (result != MT_RETURN_OK) return result;
+//
+//    result = MtDestroyConfig(mt->config);
+//    if (result != MT_RETURN_OK) return result;
+//
+//    free(mt);
+//
+//    return MT_RETURN_OK;
+//}
+//
+//
+//typedef void (*GeNewEventCallbackFunc)(GePassage passage, void* context);  // Maybe (void*) instead of RTpassage
+//
+//extern int GeSetNewEventCallback(
+//        Ge ge, GeNewEventCallbackFunc callback, void* context)
 
 	/*
 MT_PUBLIC int MtSetNewPassageCallback(Mt mt, MtNewPassageCallbackFunc callback, void* context)
@@ -381,8 +381,8 @@ static void MtNewPassageCallback(MtPassage passage, void* context)
  *  Signature for a callback function that can be registered with this module.
  *  The function will be called for each newly tracked passage.
  *----------------------------------------------------------------------------*/
-typedef void (*RTContextCallbackFunc)(RTpassage passage, void* context);  // Maybe (void*) instead of RTpassage
-typedef void (*SetRTNextEventCallbackFunc)(RTpassage passage, void* context);
+//typedef void (*RTContextCallbackFunc)(RTpassage passage, void* context);  // Maybe (void*) instead of RTpassage
+//typedef void (*SetRTNextEventCallbackFunc)(RTpassage passage, void* context);
 
 
 

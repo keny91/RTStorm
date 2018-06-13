@@ -19,7 +19,7 @@ static enum MapPool {
 // each of the above should have an individual
 
 // win condition -> enemy points reach 0
-static enum Map_Score_Based { Towers_of_Doom, Hanamura };
+static enum Map_Score_Based { Towers_of_Doom_p, Hanamura_p };
 // condition could still be Destroy core, but core only can TakeDamage() through objectives.
 
 static enum StructureType {

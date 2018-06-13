@@ -13,12 +13,12 @@ This file is dedicated to .
 -----------------------------------------------------------------------------*/
 
 
-using namespace std;
 #include "du.h"
 #include "Hero.h"
 #include <string>
 #include "GE_MSGs.h"
-#include <cstring>
+#include <stdio.h>
+#include <string.h>
 
 
 using namespace std;
@@ -70,7 +70,7 @@ public:
 	// protected?
 	int PlayerGlobalId;
 	int PlayerTeamId;
-	string playerName;
+	char* playerName;
 	PlayerClass();
 	~PlayerClass();
 	void* parentTeamRef;  // reference to the team the player belongs to
@@ -79,7 +79,7 @@ private:
 	int AddCharacter(Character theCharacter); // can be done multiple times, this will add a character 
 	int AddPlayerScore(PlayerScore thePlayerScore);
 	int AddLeague(PlayerScore thePlayerScore);
-	int SetName(string Name);
+	int SetName(char* Name);
 	int SetHero(Hero picked_hero); // set hero and initialize characters
 	int AddPlayerStadistics(PlayerStadistics Stadistics)
 

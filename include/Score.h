@@ -17,7 +17,7 @@ Ex: death count, objective tracking, forts, ...
 #ifndef _SCORE_H_
 #define _SCORE_H_
 
-
+#include "Team.h"
 #include "du.h"
 
 extern enum GameType; // defined in Game.h
@@ -28,11 +28,12 @@ public:
 	~ScoreClass();
 protected:
 
-	virtual struct ScoreValue {};  // has to be defined for each child
+	//virtual struct ScoreValue ;  // has to be defined for each child
+	struct ScoreValue;
 	virtual int updateScore();
 	virtual int createScore();
-	Team * TeamA;
-	Team * TeamB;
+	Team TeamRed;  // team 1
+	Team TeamBlue;	// team 2
 
 
 }*Score;
@@ -48,8 +49,8 @@ protected:
 	GameType type;
 	int declareWinner();
 	int scorePoint();
-	Team* TeamA;
-	Team* TeamB;
+	//Team TeamA;
+	//Team TeamB;
 private:
 
 }*GameScore;

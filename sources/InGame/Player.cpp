@@ -10,7 +10,7 @@ PlayerClass::PlayerClass() {
 	playerLeague = NULL;
 }
 
-int PlayerClass::SetName(string name) {
-	size_t size = name.copy(playerName, 6,);
+int PlayerClass::SetName(char* name) {
+	size_t size = strv.copy(playerName, 6,);
 	return GE_RETURN_OK;
 }
