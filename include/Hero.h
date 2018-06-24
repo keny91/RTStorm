@@ -4,13 +4,18 @@
 
 //#include "Talent.h"  // implements talent, talent_tier
 #include "du.h"
+#include "Player.h"
+
+extern class Talent;
+extern class TalentTree;
+//typedef TalentTier int;
 
 // assume characters can have an X amount of tiers, each with a Variable amount of talents options
 
 typedef class HeroClass
 {
 protected:
-	typedef enum _HeroStatus{normal, stuned, dazed, mind_controlled, unstopabble, stopped, untargetable, stasis, invulnerable, slowed, ,???}status;
+	typedef enum _HeroStatus{normal, stuned, dazed, mind_controlled, unstopabble, stopped, untargetable, stasis, invulnerable, slowed}status;
 	HeroClass();
 	~HeroClass();
 	
@@ -18,7 +23,7 @@ protected:
 	//Health current_health;
 	
 	// talents
-	TalentTree talentTree;  // DuArray/DuList of talent tiers
+	TalentTree *talentTree;  // DuArray/DuList of talent tiers
 	Talent * pickedTalents;  // array of size nofTalentTiers that stores references to the picked talents.
 	//DuArray ChosenTalents;  // Duarray of selected talents
 	                        // grows with every selection on talent tier
@@ -52,7 +57,7 @@ typedef struct _TalentTreeStruct
 		int createTierLevels(int * tier_Levels, int nof_tiers);
 	 // returns the index to the first tier that is ready to be picked; -1 otherwise
 		int checkUnlockTier(int current_Level, int *First_Unlocked_Tier);
-		void SelectTalent(Talent* theTalentRef, int pick_index, TalentTier the_Tier);  // returns a reference to the talent
+		void SelectTalent(Talent* theTalentRef, int pick_index, int the_Tier);  // returns a reference to the talent
 	
 }TalentTreeStruct, *TalentTree;
 

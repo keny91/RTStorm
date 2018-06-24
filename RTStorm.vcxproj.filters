@@ -84,6 +84,9 @@
     <ClInclude Include="include\Character_Structs.h">
       <Filter>Header Files\InGame</Filter>
     </ClInclude>
+    <ClInclude Include="include\logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RTStorm.cpp">
@@ -108,9 +111,6 @@
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
     <ClCompile Include="sources\Engine\Score.cpp">
-      <Filter>Source Files\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Character.cpp">
       <Filter>Source Files\InGame</Filter>
     </ClCompile>
     <ClCompile Include="sources\InGame\Character.cpp">

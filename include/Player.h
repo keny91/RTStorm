@@ -23,6 +23,9 @@ This file is dedicated to .
 
 using namespace std;
 
+extern class PlayerStadistics;
+
+
 /*  these structs are type-defined in their respective class declaration docs
 typedef _PlayerStadisticsClass * PlayerStadistics;
 typedef _PlayerScoreClass * PlayerScore;
@@ -31,8 +34,15 @@ typedef _CharacterClass * Character;
 */
 
 
+
+
+// NOTE-> CREATE A SIMILAR DOCUMENT FOR THE LEAGUE CLASS  --  league.h
+// should these be static?/ non-visible outside this class?
+typedef enum Leagues { bronze, silver, golg, platinum, diamond, master, grandmaster } PlayerLeague;
+typedef enum Divisions { I, II, III, IV, V } PlayerDivision;
+
 // maybe we need a better system than an enum
-enum PlayerAtribute{Silenced, Player_Score, AI_Controlled, ... } ;
+enum PlayerAtribute{Silenced, Player_Score, AI_Controlled} ;
 
 
 typedef class PlayerClass
@@ -81,17 +91,13 @@ private:
 	int AddLeague(PlayerScore thePlayerScore);
 	int SetName(char* Name);
 	int SetHero(Hero picked_hero); // set hero and initialize characters
-	int AddPlayerStadistics(PlayerStadistics Stadistics)
+	int AddPlayerStadistics(PlayerStadistics Stadistics);
 
 
 } * Player;
 
 
 
-// NOTE-> CREATE A SIMILAR DOCUMENT FOR THE LEAGUE CLASS  --  league.h
-// should these be static?/ non-visible outside this class?
-typedef enum Leagues{bronze,silver,golg,platinum,diamond,master,grandmaster} PlayerLeague;
-typedef enum Divisions{I,II,III,IV,V} PlayerDivision;
 
 typedef class RankClass
 {

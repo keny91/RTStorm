@@ -107,6 +107,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>.\\include;.\\external\\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,6 +172,7 @@
     <ClInclude Include="include\GameStructs.h" />
     <ClInclude Include="include\GE_MSGs.h" />
     <ClInclude Include="include\Host_RT_API.h" />
+    <ClInclude Include="include\logging.h" />
     <ClInclude Include="include\Map.h" />
     <ClInclude Include="include\Modifier.h" />
     <ClInclude Include="include\Player.h" />
@@ -180,7 +182,6 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\Character.cpp" />
     <ClCompile Include="include\Team.cpp" />
     <ClCompile Include="RTStorm.cpp" />
     <ClCompile Include="sources\Engine\Score.cpp" />

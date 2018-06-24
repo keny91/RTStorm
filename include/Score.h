@@ -27,7 +27,7 @@ public:
 	ScoreClass();
 	~ScoreClass();
 protected:
-
+	//DuArray
 	//virtual struct ScoreValue ;  // has to be defined for each child
 	struct ScoreValue;
 	virtual int updateScore();
