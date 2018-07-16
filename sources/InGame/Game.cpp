@@ -130,4 +130,18 @@ int ClassGame::AsignTeamScore(Team theTeam) {
 		return rc;
 }
 
+
+
+int ClassGame::CreateTeam(Team* the_team) 
+{
+	int rc;
+	*the_team = new TeamClass();
+	*the_team->nof_max_players = 5;
+	*the_team->curr_nof_players = 0;
+	rc = GE_RETURN_OK;
+
+	return rc;
+}
+
+
 /*  End Game Class */

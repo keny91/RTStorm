@@ -30,14 +30,13 @@ public:
 	bool isFullTeam;
 
 	TeamClass(int max_players);
-	TeamClass()
+	TeamClass();
 	~TeamClass();
 	//Game parentGame;
 	int addPlayer(Player the_player);
 
 private:
 
-	int nofMaxPlayers;
 	
 	//int setTeamColor(TeamColor color);
 	int getParentGame(Game* game_reference);

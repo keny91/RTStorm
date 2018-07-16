@@ -53,7 +53,7 @@ public:
 
 		Characters are created from a character template.
 
-		Character examples: zagara´s roaches/hydras, zul´s skellys
+		Character examples: zagaraï¿½s roaches/hydras, zulï¿½s skellys
 
 
 		Characters are loaded from an xml. CharacterParser class:

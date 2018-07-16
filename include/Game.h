@@ -88,8 +88,8 @@ public:
 	ClassGame();
 	// just an internal call to Game(), and player and map linkage.
 	void CreateStandardGame(Map the_Map, Game* game_empty_ptr_ref);
-	void CreateGame()
-	~ClassGame(Game* game_empty_ptr_ref);
+	void CreateGame();
+	~ClassGame();
 
 protected:
 
