@@ -24,7 +24,7 @@ enum ResourceBarTypes {mana, none, energy, rage, ow_ulti, other};
 
 
 extern enum HeroTemplateList;  // each will load a hero on a template
-ex
+
 
 
 
