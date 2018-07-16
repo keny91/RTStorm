@@ -177,7 +177,7 @@ public:
 	effecttype type;	
 	//Effect();
 	int hasValidValue();
-		;
+		
 protected:
 	
 	;
